@@ -1,0 +1,28 @@
+name: Release for public site
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: "read"
+      id-token: "write"
+      pages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: Uploaded Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "public/" # upload entire directory
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
