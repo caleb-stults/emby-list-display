@@ -292,7 +292,7 @@
             const seenTitles = new Set();
             let visibleCardsCount = 0;
 
-            targetDataset.forEach(item => {
+            sortedDataset.forEach(item => {
                 const standardizedTitle = item.title.trim().toLowerCase();
 
                 if (seenTitles.has(standardizedTitle)) {
