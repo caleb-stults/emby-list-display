@@ -282,12 +282,22 @@
             });
 
             container.innerHTML = '';
+            const seenTitles = new Set();
+
             data.forEach(item => {
+                const standardizedTitle = item.title.trim().toLowerCase();
+                if (seenTitles.has(standardizedTitle)) return;
+                seenTitles.add(standardizedTitle);
+
                 const card = document.createElement('a');
                 card.className = 'media-card';
                 card.href = item.imdb ? `https://www.imdb.com/title/${item.imdb}/` : '#';
-                if (!item.imdb) card.onclick = (e) => { e.preventDefault(); showToast("No IMDb link available."); };
-                else card.target = '_blank';
+                
+                if (!item.imdb) {
+                    card.onclick = (e) => { e.preventDefault(); showToast("No IMDb link available."); };
+                } else {
+                    card.target = '_blank';
+                }
 
                 card.innerHTML = `
                     <div class="poster-wrapper">
