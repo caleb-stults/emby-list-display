@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Media Catalog Showcase</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; background: #121212; color: #e0e0e0; padding: 40px; margin: 0; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #2d2d2d; padding-bottom: 20px; margin-bottom: 30px; }
+        h1 { margin: 0; color: #fff; font-size: 1.8rem; }
+        
+        /* Layout Filtering Interface Component elements */
+        .filter-buttons { display: flex; gap: 10px; }
+        button { background: #1e1e1e; color: #fff; border: 1px solid #444; padding: 10px 20px; border-radius: 6px; cursor: pointer; font-size: 1rem; font-weight: bold; transition: all 0.2s; }
+        button.active { background: #00adb5; border-color: #00adb5; color: #121212; }
+        button:hover { background: #2a2a2a; }
+        button.active:hover { background: #00adb5; }
+
+        /* Media Presentation Grid Matrix styles */
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 25px; }
+        .card { background: #1e1e1e; border: 1px solid #2d2d2d; border-radius: 8px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-4px); }
+        
+        /* Locked 2:3 dimension matrix layout bounds container blocks sudden element jumping */
+        .poster-frame { width: 100%; aspect-ratio: 2 / 3; background: #252525; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .poster-frame img { width: 100%; height: 100%; object-fit: cover; }
+        .missing-poster { color: #666; font-size: 0.85rem; text-align: center; padding: 15px; }
+
+        .card-details { padding: 12px; display: flex; flex-direction: column; flex-grow: 1; }
+        .card-details h3 { margin: 0 0 4px 0; color: #fff; font-size: 1rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .card-details .year { color: #888; font-size: 0.85rem; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Library Collection Inventory</h1>
+        <div class="filter-buttons">
+            <button id="tab-movies" class="active" onclick="toggleActiveTab('movies')">Movies</button>
+            <button id="tab-shows" onclick="toggleActiveTab('tvShows')">TV Shows</button>
+        </div>
+    </header>
+
+    <main id="media-grid" class="grid">Loading collection data files...</main>
+
+    <script>
+        // State engine container used to retain cached downloads in memory
+        let applicationDatabaseState = null;
+
+        /**
+         * Asynchronously downloads static inventory documents from server workspace
+         */
+        async function runApplicationBootStrap() {
+            try {
+                const response = await fetch('./data/media.json');
+                if (!response.ok) throw new Error('Failed to resolve data database payload file.');
+                
+                applicationDatabaseState = await response.json();
+                
+                // Initialize user view interface targeting standard movies array lists by default
+                displaySelectedCategory('movies');
+            } catch (err) {
+                console.error(err);
+                document.getElementById('media-grid').innerText = 'System Error: Unable to extract library structure maps.';
+            }
+        }
+
+        /**
+         * Loops through items arrays and injects HTML structural display elements out to view grid layout
+         */
+        function displaySelectedCategory(selectedKey) {
+            const displayGridContainer = document.getElementById('media-grid');
+            displayGridContainer.innerHTML = ''; // Clear existing cards or loading indicators
+
+            const mediaCollectionSubset = applicationDatabaseState[selectedKey];
+
+            if (!mediaCollectionSubset || mediaCollectionSubset.length === 0) {
+                displayGridContainer.innerText = `Zero items listed inside this category.`;
+                return;
+            }
+
+            mediaCollectionSubset.forEach(mediaItem => {
+                const cardLayoutWidget = document.createElement('div');
+                cardLayoutWidget.className = 'card';
+                
+                // Native native lazy loading limits browser operations to on-screen items only
+                const posterContainerElement = mediaItem.poster 
+                    ? `<img src="${mediaItem.poster}" alt="${mediaItem.title}" loading="lazy">` 
+                    : `<div class="missing-poster">No Image Synced</div>`;
+
+                cardLayoutWidget.innerHTML = `
+                    <div class="poster-frame">
+                        ${posterContainerElement}
+                    </div>
+                    <div class="card-details">
+                        <h3 title="${mediaItem.title}">${mediaItem.title}</h3>
+                        <div class="year">${mediaItem.year}</div>
+                    </div>
+                `;
+                displayGridContainer.appendChild(cardLayoutWidget);
+            });
+        }
+
+        /**
+         * Swaps functional UI state classes and triggers refresh cycles on active display cards
+         */
+        function toggleActiveTab(chosenTargetKey) {
+            document.getElementById('tab-movies').classList.remove('active');
+            document.getElementById('tab-shows').classList.remove('active');
+            
+            if (chosenTargetKey === 'movies') {
+                document.getElementById('tab-movies').classList.add('active');
+            } else {
+                document.getElementById('tab-shows').classList.add('active');
+            }
+
+            displaySelectedCategory(chosenTargetKey);
+        }
+
+        // Initialize execution sequences once the client interface rendering framework is built
+        document.addEventListener('DOMContentLoaded', runApplicationBootStrap);
+    </script>
+</body>
+</html>
