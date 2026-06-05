@@ -23,17 +23,21 @@ async function getCollectionIdByType() {
         if (!response.ok) return null;
         
         const data = await response.json();
-	if (itemType === 'Series' && data.Items.length > 0) {
-    console.log("DEBUG TV SHOW:", data.Items[0].Name, "ProviderIds:", data.Items[0].ProviderIds);
-	}
-        const match = data.Items.find(item => item.CollectionType === 'tvshows');
+        
+        // Debug: Log what Emby returns so we can see the exact CollectionType
+        console.log("Available Libraries:", data.Items.map(i => ({ Name: i.Name, Type: i.CollectionType })));
+
+        // Look for common variations of the TV library type
+        const match = data.Items.find(item => 
+            ['tvshows', 'shows', 'series'].includes(item.CollectionType)
+        );
+        
         return match ? match.Id : null;
     } catch (err) {
-        console.error(`Error resolving TV collection folder ID by type:`, err.message);
+        console.error(`Error resolving TV collection folder ID:`, err.message);
         return null;
     }
 }
-
 /**
  * Downloads a binary poster image from Emby and saves it locally inside the repository workspace
  */
