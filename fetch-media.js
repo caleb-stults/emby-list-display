@@ -1,4 +1,4 @@
-import dotenv from 'dotenv';
+import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
