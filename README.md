@@ -18,6 +18,7 @@ This project runs a Node.js scraper script (`fetch-media.js`) on the local home 
     └── data/            # Automatically populated media databases
         ├── media.json   # Clean filtered catalog arrays
         └── posters/     # Compressed local artwork cache
+```
 
 ## Setup & Operation
 1. Configure local endpoint keys inside `.env` (`EMBY_URL=http://127.0.0.1:8096`, `EMBY_API_KEY`).
