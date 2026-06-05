@@ -95,6 +95,9 @@ async function queryLibraryContents(itemType, parentId = null) {
     if (!response.ok) throw new Error(`HTTP network error returned: ${response.status}`);
 
     const data = await response.json();
+    if (data.Items && data.Items.length > 0) {
+        console.log(`DEBUG: Raw Data for "${data.Items[0].Name}":`, JSON.stringify(data.Items[0].ProviderIds, null, 2));
+    }
     const cleanCatalog = [];
 
     for (const item of data.Items) {
