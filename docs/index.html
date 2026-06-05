@@ -128,7 +128,6 @@
             gap: 25px;
         }
 
-        /* Clicking behavior styles */
         .media-card {
             background-color: var(--card-bg);
             border-radius: 4px;
@@ -187,7 +186,6 @@
             color: var(--text-muted);
         }
 
-        /* Toast Popup Styles */
         .toast-notification {
             position: fixed;
             bottom: -100px;
@@ -285,15 +283,14 @@
 
                 visibleCardsCount++;
 
-                // Build item card elements dynamically as links or custom trigger action hooks
                 const card = document.createElement('a');
                 card.className = 'media-card';
                 
+                // INTEGRATED IMDb LINKING LOGIC
                 if (item.imdb) {
                     card.href = `https://www.imdb.com/title/${item.imdb}/`;
-                    card.target = '_blank'; // Open in a new tab
+                    card.target = '_blank';
                 } else {
-                    // Prevent page hopping and attach custom popup logic
                     card.href = '#';
                     card.onclick = function(e) {
                         e.preventDefault();
@@ -320,19 +317,16 @@
             }
         }
 
-        // Display Toast Alert Engine
         function showToast(message) {
             const toast = document.getElementById('toast-message');
             toast.innerText = message;
             
-            // Clear out any running timers if users click multiple invalid items quickly
             if (toastTimeout) {
                 clearTimeout(toastTimeout);
             }
 
             toast.classList.add('show');
 
-            // Slide down and dismiss toast message after 3 seconds
             toastTimeout = setTimeout(() => {
                 toast.classList.remove('show');
             }, 3000);
@@ -345,7 +339,7 @@
         function switchTab(type, element) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
-            currentTab = type;
+            currentTab = type === 'tv' ? 'tvShows' : 'movies';
             filterAndRender();
         }
 

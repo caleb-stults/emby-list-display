@@ -88,7 +88,7 @@ async function queryLibraryContents(itemType, parentId = null) {
 
     for (const item of data.Items) {
         const primaryImageTag = item.ImageTags ? item.ImageTags.Primary : null;
-        
+        console.log(`Debug: Item ${item.Name} ProviderIds:`, item.ProviderIds);
         const localPosterUrl = await downloadPosterImage(item.Id, primaryImageTag);
 
         // CHANGED: Added extraction of the Imdb ID
