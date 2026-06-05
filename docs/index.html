@@ -66,13 +66,16 @@
         }
 
         .search-container {
-            max-width: 500px;
+            max-width: 800px;
             margin: 0 auto 10px auto;
             padding: 0 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .search-input {
-            width: 100%;
             padding: 12px 20px;
             background-color: var(--input-bg);
             border: 2px solid transparent;
@@ -86,10 +89,6 @@
         .search-input:focus {
             border-color: var(--accent-purple);
             box-shadow: 0 0 10px rgba(114, 26, 196, 0.3);
-        }
-
-        .search-input::placeholder {
-            color: #777;
         }
 
         .filter-nav {
@@ -128,6 +127,10 @@
             gap: 25px;
         }
 
+        @media (max-width: 600px) {
+            .media-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+        }
+
         .media-card {
             background-color: var(--card-bg);
             border-radius: 4px;
@@ -155,17 +158,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
-
-        .missing-poster {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #555;
-            font-size: 0.9rem;
-            text-align: center;
-            width: 90%;
         }
 
         .info-panel {
@@ -208,12 +200,6 @@
         .toast-notification.show {
             bottom: 40px;
         }
-
-        .media-card:hover .poster-img {
-            filter: brightness(1.2);
-            transition: filter 0.3s ease;
-        }
-
     </style>
 </head>
 <body>
@@ -224,18 +210,18 @@
             <h1>Hoss' Netflix</h1>
         </div>
         <p class="welcome-blurb">
-            Welcome to Hoss' Netflix! Here you can see the selections that are available on the server whenever you're ready to watch! Click on an image to go to the IMDB page to learn more about the film or show!
+            Welcome to Hoss' Netflix! Here you can see the selections that are available on the server.
         </p>
 
         <div class="search-container">
-            <input type="text" id="library-search" class="search-input" placeholder="Search titles..." oninput="handleSearchInput()">
-        </div>
-        
-        <div style="margin-top: 15px;">
-            <select id="sort-select" class="search-input" style="width: auto; padding: 5px 15px;" onchange="filterAndRender()">
-                <option value="year-desc">Year (Newest First)</option>
-                <option value="year-asc">Year (Oldest First)</option>
+            <input type="text" id="library-search" class="search-input" placeholder="Search titles..." oninput="filterAndRender()">
+            <select id="sort-select" class="search-input" onchange="filterAndRender()">
                 <option value="title-asc" selected>Title (A-Z)</option>
+                <option value="year-desc">Year (Newest)</option>
+                <option value="year-asc">Year (Oldest)</option>
+            </select>
+            <select id="genre-select" class="search-input" onchange="filterAndRender()">
+                <option value="all">All Genres</option>
             </select>
         </div>
     </header>
@@ -259,110 +245,74 @@
                 const response = await fetch('./data/media.json');
                 if (!response.ok) throw new Error("Data bank could not be read.");
                 serverPayload = await response.json();
+                populateGenres();
                 filterAndRender();
             } catch (err) {
-                console.error("Dashboard hydration error:", err);
                 document.getElementById('catalog-display-box').innerHTML = 
-                    `<p style="color: var(--accent-purple); grid-column: 1/-1; text-align: center;">Unable to load media catalog details. Verify server synchronization state.</p>`;
+                    `<p style="color: var(--accent-purple); grid-column: 1/-1; text-align: center;">Unable to load media catalog details.</p>`;
             }
+        }
+
+        function populateGenres() {
+            const genres = new Set();
+            [...serverPayload.movies, ...serverPayload.tvShows].forEach(i => (i.genres || []).forEach(g => genres.add(g)));
+            const select = document.getElementById('genre-select');
+            [...genres].sort().forEach(g => {
+                const opt = document.createElement('option');
+                opt.value = g;
+                opt.textContent = g;
+                select.appendChild(opt);
+            });
         }
 
         function filterAndRender() {
             const container = document.getElementById('catalog-display-box');
-            const searchTerms = document.getElementById('library-search').value.trim().toLowerCase();
-            const targetDataset = currentTab === 'movies' ? serverPayload.movies : serverPayload.tvShows;
-            
-            container.innerHTML = '';
+            const search = document.getElementById('library-search').value.trim().toLowerCase();
+            const sort = document.getElementById('sort-select').value;
+            const genre = document.getElementById('genre-select').value;
+            let data = currentTab === 'movies' ? serverPayload.movies : serverPayload.tvShows;
 
-            if (!targetDataset || targetDataset.length === 0) {
-                container.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center;">No library files currently cataloged under this type.</p>`;
-                return;
-            }
+            if (genre !== 'all') data = data.filter(i => (i.genres || []).includes(genre));
+            if (search) data = data.filter(i => i.title.toLowerCase().includes(search));
 
-            // Sorting logic added
-            const sortValue = document.getElementById('sort-select').value;
-            const sortedDataset = [...targetDataset].sort((a, b) => {
-                const yearA = parseInt(a.year) || 0;
-                const yearB = parseInt(b.year) || 0;
-                if (sortValue === 'year-desc') return yearB - yearA;
-                if (sortValue === 'year-asc') return yearA - yearB;
-                if (sortValue === 'title-asc') return (a.title || "").localeCompare(b.title || "");
-                return 0;
+            data.sort((a, b) => {
+                if (sort === 'year-desc') return (parseInt(b.year) || 0) - (parseInt(a.year) || 0);
+                if (sort === 'year-asc') return (parseInt(a.year) || 0) - (parseInt(b.year) || 0);
+                return (a.title || "").localeCompare(b.title || "");
             });
 
-            const seenTitles = new Set();
-            let visibleCardsCount = 0;
-
-            // Loop through the sorted data
-            sortedDataset.forEach(item => {
-                const standardizedTitle = item.title.trim().toLowerCase();
-
-                if (seenTitles.has(standardizedTitle)) {
-                    return;
-                }
-                seenTitles.add(standardizedTitle);
-
-                if (searchTerms && !standardizedTitle.includes(searchTerms)) {
-                    return;
-                }
-
-                visibleCardsCount++;
-
+            container.innerHTML = '';
+            data.forEach(item => {
                 const card = document.createElement('a');
                 card.className = 'media-card';
-                
-                if (item.imdb) {
-                    card.href = `https://www.imdb.com/title/${item.imdb}/`;
-                    card.target = '_blank';
-                } else {
-                    card.href = '#';
-                    card.onclick = function(e) {
-                        e.preventDefault();
-                        showToast(`"${item.title}" doesn't have an IMDb link available.`);
-                    };
-                }
-
-                const posterBlock = item.poster 
-                    ? `<img src="${item.poster}" class="poster-img" alt="${item.title}" loading="lazy">`
-                    : `<div class="missing-poster">🍿<br>${item.title}</div>`;
+                card.href = item.imdb ? `https://www.imdb.com/title/${item.imdb}/` : '#';
+                if (!item.imdb) card.onclick = (e) => { e.preventDefault(); showToast("No IMDb link available."); };
+                else card.target = '_blank';
 
                 card.innerHTML = `
-                    <div class="poster-wrapper">${posterBlock}</div>
+                    <div class="poster-wrapper">
+                        <img src="${item.poster}" class="poster-img" loading="lazy">
+                    </div>
                     <div class="info-panel">
-                        <div class="card-title" title="${item.title}">${item.title}</div>
+                        <div class="card-title">${item.title}</div>
                         <div class="card-meta">${item.year}</div>
                     </div>
                 `;
                 container.appendChild(card);
             });
-
-            if (visibleCardsCount === 0) {
-                container.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center;">No media items match your search query.</p>`;
-            }
         }
 
         function showToast(message) {
             const toast = document.getElementById('toast-message');
             toast.innerText = message;
-            
-            if (toastTimeout) {
-                clearTimeout(toastTimeout);
-            }
-
             toast.classList.add('show');
-
-            toastTimeout = setTimeout(() => {
-                toast.classList.remove('show');
-            }, 3000);
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => toast.classList.remove('show'), 3000);
         }
 
-        function handleSearchInput() {
-            filterAndRender();
-        }
-
-        function switchTab(type, element) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
+        function switchTab(type, el) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
             currentTab = type === 'tv' ? 'tvShows' : 'movies';
             filterAndRender();
         }

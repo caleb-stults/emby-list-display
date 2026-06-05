@@ -14,20 +14,12 @@ if (!fs.existsSync(POSTER_DIR)) {
     fs.mkdirSync(POSTER_DIR, { recursive: true });
 }
 
-/**
- * Connects to the updated folder layout routing tree and matches the library tagged internally with the structural type 'tvshows'.
-*/
-/**
- * Connects to the library folders and explicitly looks for the 'tvshows' collection type.
- */
 async function getCollectionIdByType() {
     try {
         const response = await fetch(`${EMBY_URL}/Library/MediaFolders?api_key=${API_KEY}`);
         if (!response.ok) return null;
         
         const data = await response.json();
-        
-        // Explicitly look for the 'tvshows' type returned by your server
         const match = data.Items.find(item => item.CollectionType === 'tvshows');
         
         if (match) {
@@ -42,9 +34,7 @@ async function getCollectionIdByType() {
         return null;
     }
 }
-/**
- * Downloads a binary poster image from Emby and saves it locally inside the repository workspace
- */
+
 async function downloadPosterImage(itemId, imageTag) {
     if (!imageTag) return null;
 
@@ -73,16 +63,12 @@ async function downloadPosterImage(itemId, imageTag) {
     }
 }
 
-/**
- * Queries modern Emby API for item structures and formats the layout payload arrays
- */
 async function queryLibraryContents(itemType, parentId = null) {
     const queryParams = new URLSearchParams({
         api_key: API_KEY,
         IncludeItemTypes: itemType,
         Recursive: 'true',
-        // CHANGED: Added 'ProviderIds' to the Fields string
-        Fields: 'Overview,ProductionYear,ImageTags,ProviderIds',
+        Fields: 'Overview,ProductionYear,ImageTags,ProviderIds,Genres',
         IsMissing: 'false'
     });
 
@@ -95,33 +81,27 @@ async function queryLibraryContents(itemType, parentId = null) {
     if (!response.ok) throw new Error(`HTTP network error returned: ${response.status}`);
 
     const data = await response.json();
-    if (data.Items && data.Items.length > 0) {
-        console.log(`DEBUG: Raw Data for "${data.Items[0].Name}":`, JSON.stringify(data.Items[0].ProviderIds, null, 2));
-    }
     const cleanCatalog = [];
 
     for (const item of data.Items) {
         const primaryImageTag = item.ImageTags ? item.ImageTags.Primary : null;
         const localPosterUrl = await downloadPosterImage(item.Id, primaryImageTag);
-
-        // CHANGED: Added extraction of the Imdb ID
-	const imdbId = (item.ProviderIds && (item.ProviderIds.Imdb || item.ProviderIds.IMDB || item.ProviderIds.imdb)) || null;
+        const imdbId = (item.ProviderIds && (item.ProviderIds.Imdb || item.ProviderIds.IMDB || item.ProviderIds.imdb)) || null;
+        
         cleanCatalog.push({
             id: item.Id,
             title: item.Name,
             year: item.ProductionYear || 'N/A',
             overview: item.Overview || 'No description summary available.',
             poster: localPosterUrl,
-            imdb: imdbId
+            imdb: imdbId,
+            genres: item.Genres || []
         });
     }
 
     return cleanCatalog;
 }
 
-/**
- * Core orchestrator execution module
- */
 async function run() {
     if (!EMBY_URL || !API_KEY) {
         console.error("Critical configuration failure: Check your local .env key pairs.");
@@ -129,19 +109,8 @@ async function run() {
     }
 
     try {
-        console.log("Analyzing Emby workspace configurations...");
-        
         const tvDirectoryId = await getCollectionIdByType();
-        if (!tvDirectoryId) {
-            console.warn("Warning: Could not isolate an internal library type matching 'tvshows'.");
-        } else {
-            console.log(`Detected TV Library ID: ${tvDirectoryId}`);
-        }
-
-        console.log("Compiling movies list...");
         const moviesList = await queryLibraryContents("Movie");
-
-        console.log("Compiling TV shows list using detected collection ID...");
         const tvShowsList = await queryLibraryContents("Series", tvDirectoryId);
 
         const structuredPayload = {
