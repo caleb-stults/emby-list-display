@@ -230,6 +230,14 @@
         <div class="search-container">
             <input type="text" id="library-search" class="search-input" placeholder="Search titles..." oninput="handleSearchInput()">
         </div>
+        
+        <div style="margin-top: 15px;">
+            <select id="sort-select" class="search-input" style="width: auto; padding: 5px 15px;" onchange="filterAndRender()">
+                <option value="year-desc">Year (Newest First)</option>
+                <option value="year-asc">Year (Oldest First)</option>
+                <option value="title-asc">Title (A-Z)</option>
+            </select>
+        </div>
     </header>
 
     <nav class="filter-nav">
@@ -237,15 +245,7 @@
         <button id="tv-tab-btn" class="filter-btn" onclick="switchTab('tv', this)">TV Shows</button>
     </nav>
 
-    <main class="media-grid" id="catalog-display-box">
-        <div style="max-width: 1200px; margin: 0 auto 20px auto; padding: 0 15px; display: flex; justify-content: flex-end;">
-            <select id="sort-select" class="search-input" style="width: auto;" onchange="filterAndRender()">
-                <option value="year-desc">Year (Newest First)</option>
-                <option value="year-asc">Year (Oldest First)</option>
-                <option value="title-asc">Title (A-Z)</option>
-            </select>
-        </div>
-    </main>
+    <main class="media-grid" id="catalog-display-box"></main>
 
     <div id="toast-message" class="toast-notification"></div>
 
@@ -279,6 +279,7 @@
                 return;
             }
 
+            // Sorting logic added
             const sortValue = document.getElementById('sort-select').value;
             const sortedDataset = [...targetDataset].sort((a, b) => {
                 const yearA = parseInt(a.year) || 0;
@@ -292,6 +293,7 @@
             const seenTitles = new Set();
             let visibleCardsCount = 0;
 
+            // Loop through the sorted data
             sortedDataset.forEach(item => {
                 const standardizedTitle = item.title.trim().toLowerCase();
 
@@ -309,7 +311,6 @@
                 const card = document.createElement('a');
                 card.className = 'media-card';
                 
-                // INTEGRATED IMDb LINKING LOGIC
                 if (item.imdb) {
                     card.href = `https://www.imdb.com/title/${item.imdb}/`;
                     card.target = '_blank';
