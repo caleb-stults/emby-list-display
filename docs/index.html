@@ -236,6 +236,7 @@
                 <option value="year-desc">Year (Newest First)</option>
                 <option value="year-asc">Year (Oldest First)</option>
                 <option value="title-asc">Title (A-Z)</option>
+                <option value="genre-asc">Genre (A-Z)</option>
             </select>
         </div>
     </header>
@@ -284,9 +285,12 @@
             const sortedDataset = [...targetDataset].sort((a, b) => {
                 const yearA = parseInt(a.year) || 0;
                 const yearB = parseInt(b.year) || 0;
+                const genreA = (Array.isArray(a.genres) ? a.genres[0] : (a.genre || "")) || "";
+                const genreB = (Array.isArray(b.genres) ? b.genres[0] : (b.genre || "")) || "";
                 if (sortValue === 'year-desc') return yearB - yearA;
                 if (sortValue === 'year-asc') return yearA - yearB;
                 if (sortValue === 'title-asc') return (a.title || "").localeCompare(b.title || "");
+                if (sortValue === 'genre-asc') return genreA.localeCompare(genreB);
                 return 0;
             });
 
