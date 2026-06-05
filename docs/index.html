@@ -208,6 +208,12 @@
         .toast-notification.show {
             bottom: 40px;
         }
+
+        .media-card:hover .poster-img {
+            filter: brightness(1.2);
+            transition: filter 0.3s ease;
+        }
+
     </style>
 </head>
 <body>
@@ -232,6 +238,13 @@
     </nav>
 
     <main class="media-grid" id="catalog-display-box">
+        <div style="max-width: 1200px; margin: 0 auto 20px auto; padding: 0 15px; display: flex; justify-content: flex-end;">
+            <select id="sort-select" class="search-input" style="width: auto;" onchange="filterAndRender()">
+                <option value="year-desc">Year (Newest First)</option>
+                <option value="year-asc">Year (Oldest First)</option>
+                <option value="title-asc">Title (A-Z)</option>
+            </select>
+        </div>
     </main>
 
     <div id="toast-message" class="toast-notification"></div>
@@ -265,6 +278,14 @@
                 container.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center;">No library files currently cataloged under this type.</p>`;
                 return;
             }
+
+            const sortValue = document.getElementById('sort-select').value;
+            const sortedDataset = [...targetDataset].sort((a, b) => {
+                if (sortValue === 'year-desc') return b.year - a.year;
+                if (sortValue === 'year-asc') return a.year - b.year;
+                if (sortValue === 'title-asc') return a.title.localeCompare(b.title);
+                return 0;
+            });
 
             const seenTitles = new Set();
             let visibleCardsCount = 0;
