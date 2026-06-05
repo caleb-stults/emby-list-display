@@ -23,6 +23,9 @@ async function getCollectionIdByType() {
         if (!response.ok) return null;
         
         const data = await response.json();
+	if (itemType === 'Series' && data.Items.length > 0) {
+    console.log("DEBUG TV SHOW:", data.Items[0].Name, "ProviderIds:", data.Items[0].ProviderIds);
+	}
         const match = data.Items.find(item => item.CollectionType === 'tvshows');
         return match ? match.Id : null;
     } catch (err) {
