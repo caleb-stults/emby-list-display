@@ -23,7 +23,15 @@ async function getCollectionIdByType() {
         if (!response.ok) return null;
         
         const data = await response.json();
-        
+	const cleanCatalog = [];
+
+    // Debug: Check the first item returned to see if it even has ProviderIds
+    	if (data.Items && data.Items.length > 0) {
+        	console.log(`DEBUG: First item in ${itemType} is "${data.Items[0].Name}"`);
+        	console.log(`DEBUG: ProviderIds for this item:`, JSON.stringify(data.Items[0].ProviderIds));
+    	}
+
+    	for (const item of data.Items) {        
         // Debug: Log what Emby returns so we can see the exact CollectionType
         console.log("Available Libraries:", data.Items.map(i => ({ Name: i.Name, Type: i.CollectionType })));
 
