@@ -26,7 +26,8 @@ async function downloadPoster(imageId, tag) {
 }
 
 async function fetchLibrary(itemType) {
-    const url = `${process.env.EMBY_URL}/emby/Items?ApiKey=${process.env.EMBY_API_KEY}&IncludeItemTypes=${itemType}&Recursive=true&Fields=ProductionYear,ImageTags,ProviderIds`;
+    // Restored your exact original URL structure, simply appending ProviderIds to the Fields group
+    const url = `${process.env.EMBY_URL}/emby/Items?IncludeItemTypes=${itemType}&Recursive=true&Fields=ProductionYear,ImageTags,ProviderIds&ApiKey=${process.env.EMBY_API_KEY}`;
     
     try {
         const response = await fetch(url);
@@ -54,6 +55,7 @@ async function processItems(items) {
             posterPath = `./data/posters/${imageId}.jpg`;
         }
 
+        // Safely grab the IMDb ID if it exists
         const imdbId = (item.ProviderIds && item.ProviderIds.Imdb) ? item.ProviderIds.Imdb : null;
 
         optimizedList.push({
