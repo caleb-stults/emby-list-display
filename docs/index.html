@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hoss' Netflix</title>
-    
     <link rel="icon" type="image/png" href="./icon.png">
 
     <style>
@@ -13,7 +12,8 @@
             --card-bg: #1f1f1f;
             --text-main: #ffffff;
             --text-muted: #aaaaaa;
-            --accent-red: #e50914;
+            --accent-purple: #721ac4;
+            --input-bg: #2a2a2a;
         }
 
         * {
@@ -32,11 +32,10 @@
 
         .header-container {
             max-width: 1200px;
-            margin: 20px auto 40px auto;
+            margin: 20px auto 30px auto;
             text-align: center;
         }
 
-        /* Combined Icon and Text Title Container */
         .title-wrapper {
             display: inline-flex;
             align-items: center;
@@ -52,7 +51,7 @@
         }
 
         h1 {
-            color: var(--accent-red);
+            color: var(--accent-purple);
             font-size: 2.5rem;
             font-weight: bold;
             letter-spacing: -1px;
@@ -60,10 +59,37 @@
 
         .welcome-blurb {
             max-width: 650px;
-            margin: 0 auto;
+            margin: 0 auto 20px auto;
             color: var(--text-muted);
             font-size: 1.1rem;
             font-weight: 300;
+        }
+
+        .search-container {
+            max-width: 500px;
+            margin: 0 auto 10px auto;
+            padding: 0 15px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: var(--input-bg);
+            border: 2px solid transparent;
+            border-radius: 25px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: var(--accent-purple);
+            box-shadow: 0 0 10px rgba(114, 26, 196, 0.3);
+        }
+
+        .search-input::placeholder {
+            color: #777;
         }
 
         .filter-nav {
@@ -91,7 +117,7 @@
         }
 
         .filter-btn.active {
-            border-bottom: 3px solid var(--accent-red);
+            border-bottom: 3px solid var(--accent-purple);
         }
 
         .media-grid {
@@ -165,59 +191,67 @@
             <h1>Hoss' Netflix</h1>
         </div>
         <p class="welcome-blurb">
-            Welcome to Hoss' Netflix! Here you can see the selections that are available on the server whenever you're ready to watch!
+            Welcome to Caleb's Netflix! Here you can see the selections that are available on the server whenever you're ready to watch!
         </p>
+
+        <div class="search-container">
+            <input type="text" id="library-search" class="search-input" placeholder="Search titles..." oninput="handleSearchInput()">
+        </div>
     </header>
 
     <nav class="filter-nav">
-        <button class="filter-btn active" onclick="switchTab('movies', this)">Movies</button>
-        <button class="filter-btn" onclick="switchTab('tv', this)">TV Shows</button>
+        <button id="movies-tab-btn" class="filter-btn active" onclick="switchTab('movies', this)">Movies</button>
+        <button id="tv-tab-btn" class="filter-btn" onclick="switchTab('tv', this)">TV Shows</button>
     </nav>
 
     <main class="media-grid" id="catalog-display-box">
-        </main>
+    </main>
 
     <script>
         let serverPayload = { movies: [], tvShows: [] };
+        let currentTab = 'movies';
 
         async function initDashboard() {
             try {
                 const response = await fetch('./data/media.json');
                 if (!response.ok) throw new Error("Data bank could not be read.");
                 serverPayload = await response.json();
-                
-                // Initialize display default to show movies tab first
-                renderCards(serverPayload.movies);
+                filterAndRender();
             } catch (err) {
                 console.error("Dashboard hydration error:", err);
                 document.getElementById('catalog-display-box').innerHTML = 
-                    `<p style="color: var(--accent-red); grid-column: 1/-1; text-align: center;">Unable to load media catalog details. Verify server synchronization state.</p>`;
+                    `<p style="color: var(--accent-purple); grid-column: 1/-1; text-align: center;">Unable to load media catalog details. Verify server synchronization state.</p>`;
             }
         }
 
-        function renderCards(dataset) {
+        function filterAndRender() {
             const container = document.getElementById('catalog-display-box');
+            const searchTerms = document.getElementById('library-search').value.trim().toLowerCase();
+            const targetDataset = currentTab === 'movies' ? serverPayload.movies : serverPayload.tvShows;
+            
             container.innerHTML = '';
 
-            if (!dataset || dataset.length === 0) {
+            if (!targetDataset || targetDataset.length === 0) {
                 container.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center;">No library files currently cataloged under this type.</p>`;
                 return;
             }
 
-            // Create a Set to track titles we have already seen to eliminate duplicate versions
             const seenTitles = new Set();
+            let visibleCardsCount = 0;
 
-            dataset.forEach(item => {
-                // Clean/normalize the title string to ensure accurate matching
+            targetDataset.forEach(item => {
                 const standardizedTitle = item.title.trim().toLowerCase();
 
-                // If we have already seen this title (e.g., theatrical vs extended), skip it
                 if (seenTitles.has(standardizedTitle)) {
                     return;
                 }
-
-                // Mark this title as seen so subsequent versions are ignored
                 seenTitles.add(standardizedTitle);
+
+                if (searchTerms && !standardizedTitle.includes(searchTerms)) {
+                    return;
+                }
+
+                visibleCardsCount++;
 
                 const card = document.createElement('div');
                 card.className = 'media-card';
@@ -235,17 +269,22 @@
                 `;
                 container.appendChild(card);
             });
+
+            if (visibleCardsCount === 0) {
+                container.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center;">No media items matches your search query.</p>`;
+            }
+        }
+
+        function handleSearchInput() {
+            filterAndRender();
         }
 
         function switchTab(type, element) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
-
-            if (type === 'movies') {
-                renderCards(serverPayload.movies);
-            } else {
-                renderCards(serverPayload.tvShows);
-            }
+            currentTab = type;
+            document.getElementById('library-search').value = '';
+            filterAndRender();
         }
 
         window.addEventListener('DOMContentLoaded', initDashboard);
