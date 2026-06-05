@@ -1,9 +1,7 @@
-import 'dotenv/config';
-import fs from 'fs';
-import path from 'path';
-import fetch from 'node-fetch';
-
-dotenv.config();
+require('dotenv').config();
+const fs = require('fs');
+const path = require('path');
+const fetch = require('node-fetch');
 
 const EMBY_URL = process.env.EMBY_URL;
 const API_KEY = process.env.EMBY_API_KEY;
