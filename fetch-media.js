@@ -105,8 +105,7 @@ async function queryLibraryContents(itemType, parentId = null) {
         const localPosterUrl = await downloadPosterImage(item.Id, primaryImageTag);
 
         // CHANGED: Added extraction of the Imdb ID
-        const imdbId = item.ProviderIds && item.ProviderIds.Imdb ? item.ProviderIds.Imdb : null;
-
+	const imdbId = (item.ProviderIds && (item.ProviderIds.Imdb || item.ProviderIds.IMDB || item.ProviderIds.imdb)) || null;
         cleanCatalog.push({
             id: item.Id,
             title: item.Name,
