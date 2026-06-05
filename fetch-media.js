@@ -39,7 +39,7 @@ async function getCollectionIdByType() {
         const match = data.Items.find(item => 
             ['tvshows', 'shows', 'series'].includes(item.CollectionType)
         );
-        
+        }
         return match ? match.Id : null;
     } catch (err) {
         console.error(`Error resolving TV collection folder ID:`, err.message);
