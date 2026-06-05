@@ -281,9 +281,11 @@
 
             const sortValue = document.getElementById('sort-select').value;
             const sortedDataset = [...targetDataset].sort((a, b) => {
-                if (sortValue === 'year-desc') return b.year - a.year;
-                if (sortValue === 'year-asc') return a.year - b.year;
-                if (sortValue === 'title-asc') return a.title.localeCompare(b.title);
+                const yearA = parseInt(a.year) || 0;
+                const yearB = parseInt(b.year) || 0;
+                if (sortValue === 'year-desc') return yearB - yearA;
+                if (sortValue === 'year-asc') return yearA - yearB;
+                if (sortValue === 'title-asc') return (a.title || "").localeCompare(b.title || "");
                 return 0;
             });
 
