@@ -204,7 +204,21 @@
                 return;
             }
 
+            // Create a Set to track titles we have already seen to eliminate duplicate versions
+            const seenTitles = new Set();
+
             dataset.forEach(item => {
+                // Clean/normalize the title string to ensure accurate matching
+                const standardizedTitle = item.title.trim().toLowerCase();
+
+                // If we have already seen this title (e.g., theatrical vs extended), skip it
+                if (seenTitles.has(standardizedTitle)) {
+                    return;
+                }
+
+                // Mark this title as seen so subsequent versions are ignored
+                seenTitles.add(standardizedTitle);
+
                 const card = document.createElement('div');
                 card.className = 'media-card';
 
