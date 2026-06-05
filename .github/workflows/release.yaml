@@ -7,6 +7,10 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    # ADD THIS ENVIRONMENT BLOCK
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     permissions:
       contents: "read"
@@ -25,4 +29,5 @@ jobs:
         with:
           path: "public/" # upload entire directory
       - name: Deploy to GitHub Pages
+        id: deployment # ADD THIS ID
         uses: actions/deploy-pages@v4
