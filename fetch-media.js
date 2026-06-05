@@ -17,6 +17,9 @@ if (!fs.existsSync(POSTER_DIR)) {
 /**
  * Connects to the updated folder layout routing tree and matches the library tagged internally with the structural type 'tvshows'.
 */
+/**
+ * Connects to the library folders and explicitly looks for the 'tvshows' collection type.
+ */
 async function getCollectionIdByType() {
     try {
         const response = await fetch(`${EMBY_URL}/Library/MediaFolders?api_key=${API_KEY}`);
@@ -24,15 +27,16 @@ async function getCollectionIdByType() {
         
         const data = await response.json();
         
-        // This will print what your libraries are actually named and what their types are
-        console.log("DEBUG: Available Libraries:", JSON.stringify(data.Items.map(i => ({ Name: i.Name, Type: i.CollectionType }))));
-
-        // Look for the correct type. Usually it is 'tvshows', but your logs will confirm.
-        const match = data.Items.find(item => 
-            item.CollectionType === 'tvshows' || item.CollectionType === 'series'
-        );
+        // Explicitly look for the 'tvshows' type returned by your server
+        const match = data.Items.find(item => item.CollectionType === 'tvshows');
         
-        return match ? match.Id : null;
+        if (match) {
+            console.log(`Successfully detected TV Library: "${match.Name}" (ID: ${match.Id})`);
+            return match.Id;
+        } else {
+            console.warn("Could not find a library with CollectionType 'tvshows'.");
+            return null;
+        }
     } catch (err) {
         console.error(`Error resolving TV collection folder ID:`, err.message);
         return null;
