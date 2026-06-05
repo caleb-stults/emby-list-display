@@ -5,93 +5,77 @@ import fetch from 'node-fetch';
 
 dotenv.config();
 
-async function downloadPoster(imageId, tag) {
-    const targetDir = path.join('docs', 'data', 'posters');
-    const targetPath = path.join(targetDir, `${imageId}.jpg`);
+const EMBY_URL = process.env.EMBY_URL;
+const API_KEY = process.env.EMBY_API_KEY;
 
-    if (fs.existsSync(targetPath)) {
-        return;
-    }
+// Ensure directories exist
+const dataDir = path.join('docs', 'data');
+const postersDir = path.join(dataDir, 'posters');
+if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+if (!fs.existsSync(postersDir)) fs.mkdirSync(postersDir, { recursive: true });
+
+async function downloadPoster(imageId, tag) {
+    const targetPath = path.join(postersDir, `${imageId}.jpg`);
+    if (fs.existsSync(targetPath)) return;
 
     try {
-        const url = `${process.env.EMBY_URL}/emby/Items/${imageId}/Images/Primary?tag=${tag}`;
+        const url = `${EMBY_URL}/emby/Items/${imageId}/Images/Primary?tag=${tag}`;
         const response = await fetch(url);
-        if (!response.ok) throw new Error(`Failed to download image asset for ID: ${imageId}`);
-        
+        if (!response.ok) throw new Error(`Status ${response.status}`);
         const buffer = await response.buffer();
         fs.writeFileSync(targetPath, buffer);
     } catch (err) {
-        console.error(`Error caching poster asset for ID ${imageId}:`, err.message);
+        console.error(`Error downloading poster ${imageId}:`, err.message);
     }
 }
 
-async function fetchLibrary(itemType) {
-    // Restored your exact original URL structure, simply appending ProviderIds to the Fields group
-    const url = `${process.env.EMBY_URL}/emby/Items?IncludeItemTypes=${itemType}&Recursive=true&Fields=ProductionYear,ImageTags,ProviderIds&ApiKey=${process.env.EMBY_API_KEY}`;
+async function fetchMedia(type) {
+    // Added ONLY ",ProviderIds" to your exact working URL fields string
+    const url = `${EMBY_URL}/emby/Items?ApiKey=${API_KEY}&IncludeItemTypes=${type}&Recursive=true&Fields=ProductionYear,ImageTags,ProviderIds`;
     
-    try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Emby server responded with status: ${response.status}`);
-        const data = await response.json();
-        return data.Items || [];
-    } catch (err) {
-        console.error(`Failed to harvest ${itemType} records from Emby:`, err.message);
-        return [];
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`Emby response error: ${response.status}`);
     }
-}
+    const data = await response.json();
+    const items = data.Items || [];
 
-async function processItems(items) {
-    const optimizedList = [];
-
+    const processed = [];
     for (const item of items) {
-        const cleanTitle = item.Name;
-        const releaseYear = item.ProductionYear || 'Unknown';
         let posterPath = '';
-
         if (item.ImageTags && item.ImageTags.Primary) {
-            const imageId = item.Id;
-            const tag = item.ImageTags.Primary;
-            await downloadPoster(imageId, tag);
-            posterPath = `./data/posters/${imageId}.jpg`;
+            await downloadPoster(item.Id, item.ImageTags.Primary);
+            posterPath = `./data/posters/${item.Id}.jpg`;
         }
 
-        // Safely grab the IMDb ID if it exists
-        const imdbId = (item.ProviderIds && item.ProviderIds.Imdb) ? item.ProviderIds.Imdb : null;
+        // Added ONLY this extraction mapping line to pull the IMDb ID safely
+        const imdbId = item.ProviderIds && item.ProviderIds.Imdb ? item.ProviderIds.Imdb : null;
 
-        optimizedList.push({
-            title: cleanTitle,
-            year: releaseYear,
+        processed.push({
+            title: item.Name,
+            year: item.ProductionYear || 'Unknown',
             poster: posterPath,
             imdb: imdbId
         });
     }
-
-    return optimizedList;
+    return processed;
 }
 
 async function main() {
-    const dataDir = path.join('docs', 'data');
-    const postersDir = path.join(dataDir, 'posters');
+    try {
+        console.log('Fetching movies...');
+        const movies = await fetchMedia('Movie');
 
-    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
-    if (!fs.existsSync(postersDir)) fs.mkdirSync(postersDir, { recursive: true });
+        console.log('Fetching TV shows...');
+        const tvShows = await fetchMedia('Series');
 
-    console.log('Querying movie collection entries...');
-    const rawMovies = await fetchLibrary('Movie');
-    const processedMovies = await processItems(rawMovies);
-
-    console.log('Querying television series entries...');
-    const rawTV = await fetchLibrary('Series');
-    const processedTV = await processItems(rawTV);
-
-    const finalPayload = {
-        movies: processedMovies,
-        tvShows: processedTV
-    };
-
-    const outputPath = path.join(dataDir, 'media.json');
-    fs.writeFileSync(outputPath, JSON.stringify(finalPayload, null, 2));
-    console.log(`Synchronization payload successfully compiled and written to: ${outputPath}`);
+        const outPath = path.join(dataDir, 'media.json');
+        fs.writeFileSync(outPath, JSON.stringify({ movies, tvShows }, null, 2));
+        console.log('Success! media.json updated.');
+    } catch (err) {
+        console.error('Fatal error running script:', err.message);
+        process.exit(1);
+    }
 }
 
 main();
