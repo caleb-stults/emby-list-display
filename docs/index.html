@@ -271,7 +271,7 @@
             });
 
             if (visibleCardsCount === 0) {
-                container.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center;">No media items matches your search query.</p>`;
+                container.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center;">No media items match your search query.</p>`;
             }
         }
 
@@ -283,7 +283,6 @@
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             element.classList.add('active');
             currentTab = type;
-            document.getElementById('library-search').value = '';
             filterAndRender();
         }
 
