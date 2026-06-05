@@ -1,148 +1,95 @@
-const fs = require('fs');
-const path = require('path');
+import dotenv from 'dotenv';
+import fs from 'fs';
+import path from 'path';
+import fetch from 'node-fetch';
 
-require('dotenv').config();
+dotenv.config();
 
-const EMBY_URL = process.env.EMBY_URL.replace(/\/$/, "");
-const API_KEY = process.env.EMBY_API_KEY;
+async function downloadPoster(imageId, tag) {
+    const targetDir = path.join('docs', 'data', 'posters');
+    const targetPath = path.join(targetDir, `${imageId}.jpg`);
 
-const WEB_ROOT = path.join(__dirname, 'docs'); 
-const DATA_DIR = path.join(WEB_ROOT, 'data');
-const POSTER_DIR = path.join(DATA_DIR, 'posters');
+    if (fs.existsSync(targetPath)) {
+        return;
+    }
 
-if (!fs.existsSync(POSTER_DIR)) {
-    fs.mkdirSync(POSTER_DIR, { recursive: true });
+    try {
+        const url = `${process.env.EMBY_URL}/emby/Items/${imageId}/Images/Primary?tag=${tag}`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to download image asset for ID: ${imageId}`);
+        
+        const buffer = await response.buffer();
+        fs.writeFileSync(targetPath, buffer);
+    } catch (err) {
+        console.error(`Error caching poster asset for ID ${imageId}:`, err.message);
+    }
 }
 
-/**
- * Connects to the updated folder layout routing tree and matches the library tagged internally with the structural type 'tvshows'.
- */
-async function getCollectionIdByType() {
+async function fetchLibrary(itemType) {
+    const url = `${process.env.EMBY_URL}/emby/Items?ApiKey=${process.env.EMBY_API_KEY}&IncludeItemTypes=${itemType}&Recursive=true&Fields=ProductionYear,ImageTags,ProviderIds`;
+    
     try {
-        const response = await fetch(`${EMBY_URL}/Library/MediaFolders?api_key=${API_KEY}`);
-        if (!response.ok) return null;
-        
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Emby server responded with status: ${response.status}`);
         const data = await response.json();
-        const match = data.Items.find(item => item.CollectionType === 'tvshows');
-        return match ? match.Id : null;
+        return data.Items || [];
     } catch (err) {
-        console.error(`Error resolving TV collection folder ID by type:`, err.message);
-        return null;
+        console.error(`Failed to harvest ${itemType} records from Emby:`, err.message);
+        return [];
     }
 }
 
-/**
- * Downloads a binary poster image from Emby and saves it locally inside the repository workspace
- */
-async function downloadPosterImage(itemId, imageTag) {
-    if (!imageTag) return null;
+async function processItems(items) {
+    const optimizedList = [];
 
-    const fileName = `${itemId}.jpg`;
-    const destinationPath = path.join(POSTER_DIR, fileName);
-    const webRelativePath = `./data/posters/${fileName}`;
+    for (const item of items) {
+        const cleanTitle = item.Name;
+        const releaseYear = item.ProductionYear || 'Unknown';
+        let posterPath = '';
 
-    if (fs.existsSync(destinationPath)) {
-        return webRelativePath;
-    }
+        if (item.ImageTags && item.ImageTags.Primary) {
+            const imageId = item.Id;
+            const tag = item.ImageTags.Primary;
+            await downloadPoster(imageId, tag);
+            posterPath = `./data/posters/${imageId}.jpg`;
+        }
 
-    const targetUrl = `${EMBY_URL}/Items/${itemId}/Images/Primary?api_key=${API_KEY}&maxWidth=400`;
+        const imdbId = (item.ProviderIds && item.ProviderIds.Imdb) ? item.ProviderIds.Imdb : null;
 
-    try {
-        const response = await fetch(targetUrl);
-        if (!response.ok) return null;
-
-        const arrayBuffer = await response.arrayBuffer();
-        const buffer = Buffer.from(arrayBuffer);
-        fs.writeFileSync(destinationPath, buffer);
-
-        return webRelativePath;
-    } catch (err) {
-        console.error(`Error writing image asset for ID ${itemId}:`, err.message);
-        return null;
-    }
-}
-
-/**
- * Queries modern Emby API for item structures and formats the layout payload arrays
- */
-async function queryLibraryContents(itemType, parentId = null) {
-    const queryParams = new URLSearchParams({
-        api_key: API_KEY,
-        IncludeItemTypes: itemType,
-        Recursive: 'true',
-        Fields: 'Overview,ProductionYear,ImageTags',
-        IsMissing: 'false'
-    });
-
-    if (parentId) {
-        queryParams.append('ParentId', parentId);
-    }
-
-    const endpointUrl = `${EMBY_URL}/Items?${queryParams.toString()}`;
-    const response = await fetch(endpointUrl);
-    if (!response.ok) throw new Error(`HTTP network error returned: ${response.status}`);
-
-    const data = await response.json();
-    const cleanCatalog = [];
-
-    for (const item of data.Items) {
-        const primaryImageTag = item.ImageTags ? item.ImageTags.Primary : null;
-        
-        const localPosterUrl = await downloadPosterImage(item.Id, primaryImageTag);
-
-        cleanCatalog.push({
-            id: item.Id,
-            title: item.Name,
-            year: item.ProductionYear || 'N/A',
-            overview: item.Overview || 'No description summary available.',
-            poster: localPosterUrl
+        optimizedList.push({
+            title: cleanTitle,
+            year: releaseYear,
+            poster: posterPath,
+            imdb: imdbId
         });
     }
 
-    return cleanCatalog;
+    return optimizedList;
 }
 
-/**
- * Core orchestrator execution module
- */
-async function run() {
-    if (!EMBY_URL || !API_KEY) {
-        console.error("Critical configuration failure: Check your local .env key pairs.");
-        process.exit(1);
-    }
+async function main() {
+    const dataDir = path.join('docs', 'data');
+    const postersDir = path.join(dataDir, 'posters');
 
-    try {
-        console.log("Analyzing Emby workspace configurations...");
-        
-        const tvDirectoryId = await getCollectionIdByType();
-        if (!tvDirectoryId) {
-            console.warn("Warning: Could not isolate an internal library type matching 'tvshows'.");
-        } else {
-            console.log(`Detected TV Library ID: ${tvDirectoryId}`);
-        }
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+    if (!fs.existsSync(postersDir)) fs.mkdirSync(postersDir, { recursive: true });
 
-        console.log("Compiling movies list...");
-        const moviesList = await queryLibraryContents("Movie");
+    console.log('Querying movie collection entries...');
+    const rawMovies = await fetchLibrary('Movie');
+    const processedMovies = await processItems(rawMovies);
 
-        console.log("Compiling TV shows list using detected collection ID...");
-        const tvShowsList = await queryLibraryContents("Series", tvDirectoryId);
+    console.log('Querying television series entries...');
+    const rawTV = await fetchLibrary('Series');
+    const processedTV = await processItems(rawTV);
 
-        const structuredPayload = {
-            movies: moviesList,
-            tvShows: tvShowsList,
-            lastGenerated: new Date().toISOString()
-        };
+    const finalPayload = {
+        movies: processedMovies,
+        tvShows: processedTV
+    };
 
-        fs.writeFileSync(
-            path.join(DATA_DIR, 'media.json'), 
-            JSON.stringify(structuredPayload, null, 2)
-        );
-
-        console.log(`Success! Synchronized ${moviesList.length} movies and ${tvShowsList.length} shows.`);
-    } catch (globalError) {
-        console.error("System pipeline routine failure:", globalError);
-        process.exit(1);
-    }
+    const outputPath = path.join(dataDir, 'media.json');
+    fs.writeFileSync(outputPath, JSON.stringify(finalPayload, null, 2));
+    console.log(`Synchronization payload successfully compiled and written to: ${outputPath}`);
 }
 
-run();
+main();

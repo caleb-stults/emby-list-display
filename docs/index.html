@@ -128,12 +128,17 @@
             gap: 25px;
         }
 
+        /* Clicking behavior styles */
         .media-card {
             background-color: var(--card-bg);
             border-radius: 4px;
             overflow: hidden;
             transition: transform 0.3s ease;
             box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
         }
 
         .media-card:hover {
@@ -181,6 +186,30 @@
             font-size: 0.8rem;
             color: var(--text-muted);
         }
+
+        /* Toast Popup Styles */
+        .toast-notification {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333333;
+            color: var(--text-main);
+            padding: 14px 28px;
+            border-radius: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+            border-left: 4px solid var(--accent-purple);
+            font-size: 0.95rem;
+            font-weight: bold;
+            z-index: 9999;
+            transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .toast-notification.show {
+            bottom: 40px;
+        }
     </style>
 </head>
 <body>
@@ -191,7 +220,7 @@
             <h1>Hoss' Netflix</h1>
         </div>
         <p class="welcome-blurb">
-            Welcome to Caleb's Netflix! Here you can see the selections that are available on the server whenever you're ready to watch!
+            Welcome to Hoss' Netflix! Here you can see the selections that are available on the server whenever you're ready to watch!
         </p>
 
         <div class="search-container">
@@ -207,9 +236,12 @@
     <main class="media-grid" id="catalog-display-box">
     </main>
 
+    <div id="toast-message" class="toast-notification"></div>
+
     <script>
         let serverPayload = { movies: [], tvShows: [] };
         let currentTab = 'movies';
+        let toastTimeout = null;
 
         async function initDashboard() {
             try {
@@ -253,8 +285,21 @@
 
                 visibleCardsCount++;
 
-                const card = document.createElement('div');
+                // Build item card elements dynamically as links or custom trigger action hooks
+                const card = document.createElement('a');
                 card.className = 'media-card';
+                
+                if (item.imdb) {
+                    card.href = `https://www.imdb.com/title/${item.imdb}/`;
+                    card.target = '_blank'; // Open in a new tab
+                } else {
+                    // Prevent page hopping and attach custom popup logic
+                    card.href = '#';
+                    card.onclick = function(e) {
+                        e.preventDefault();
+                        showToast(`"${item.title}" doesn't have an IMDb link available.`);
+                    };
+                }
 
                 const posterBlock = item.poster 
                     ? `<img src="${item.poster}" class="poster-img" alt="${item.title}" loading="lazy">`
@@ -273,6 +318,24 @@
             if (visibleCardsCount === 0) {
                 container.innerHTML = `<p style="color: var(--text-muted); grid-column: 1/-1; text-align: center;">No media items match your search query.</p>`;
             }
+        }
+
+        // Display Toast Alert Engine
+        function showToast(message) {
+            const toast = document.getElementById('toast-message');
+            toast.innerText = message;
+            
+            // Clear out any running timers if users click multiple invalid items quickly
+            if (toastTimeout) {
+                clearTimeout(toastTimeout);
+            }
+
+            toast.classList.add('show');
+
+            // Slide down and dismiss toast message after 3 seconds
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
         }
 
         function handleSearchInput() {
