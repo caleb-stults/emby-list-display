@@ -2006,6 +2006,18 @@
       ]
     },
     {
+      "id": "73643",
+      "title": "The Bourne Legacy",
+      "year": 2012,
+      "overview": "New CIA operative Aaron Cross experiences life-or-death stakes that have been triggered by the previous actions of Jason Bourne.",
+      "poster": "./data/posters/73643.jpg",
+      "imdb": "tt1194173",
+      "genres": [
+        "Action",
+        "Thriller"
+      ]
+    },
+    {
       "id": "43741",
       "title": "The Bourne Supremacy",
       "year": 2004,
@@ -6373,6 +6385,19 @@
       ]
     },
     {
+      "id": "73640",
+      "title": "How the Grinch Stole Christmas",
+      "year": 2000,
+      "overview": "The Grinch decides to rob Whoville of Christmas - but a dash of kindness from little Cindy Lou Who and her family may be enough to melt his heart...",
+      "poster": "./data/posters/73640.jpg",
+      "imdb": "tt0170016",
+      "genres": [
+        "Family",
+        "Comedy",
+        "Fantasy"
+      ]
+    },
+    {
       "id": "33119",
       "title": "How to Train Your Dragon",
       "year": 2010,
@@ -6439,6 +6464,35 @@
         "Science Fiction",
         "Adventure",
         "Action"
+      ]
+    },
+    {
+      "id": "73641",
+      "title": "Hulk vs. Thor",
+      "year": 2009,
+      "overview": "For ages, Odin has protected his kingdom of Asgard. But every winter, the All-Father must rest and regain his strength for one week. During this time, all of Asgard's foes (including trolls, giants, dark elves, and demons) try to claim the realm for their own, but they are always stopped by Odin's son, the mighty Thor, albeit with the loss of many brave Asgardian warriors. Loki, god of mischief, has kidnapped Dr. Bruce Banner and brought him to Asgard with the help of Amora, once Thor's lover, now the supervillain known as the Enchantress. Loki makes Banner angry and he changes into the Hulk. The Enchantress then casts a spell over the Hulk which separates Banner from his monstrous alter-ego and grants Loki control over the Hulk's body.",
+      "poster": "./data/posters/73641.jpg",
+      "imdb": "tt1325753",
+      "genres": [
+        "Action",
+        "Animation",
+        "Fantasy",
+        "Science Fiction"
+      ]
+    },
+    {
+      "id": "73642",
+      "title": "Hulk vs. Wolverine",
+      "year": 2009,
+      "overview": "Department H sends in Wolverine to track down a mysterious beast known by the US Military as the Hulk, who is rampaging across the Canadian wilderness. Surveying the extent of the damage to a destroyed town, Wolverine notices a toxic scent as well as the smell of gunpowder. He is then deployed to the wilderness to resume tracking the creature.",
+      "poster": "./data/posters/73642.jpg",
+      "imdb": null,
+      "genres": [
+        "Animation",
+        "Action",
+        "Science Fiction",
+        "Adventure",
+        "Fantasy"
       ]
     },
     {
@@ -7200,6 +7254,19 @@
       "genres": [
         "Drama",
         "War"
+      ]
+    },
+    {
+      "id": "73639",
+      "title": "Jason Bourne",
+      "year": 2016,
+      "overview": "The most dangerous former operative of the CIA is drawn out of hiding to uncover hidden truths about his past.",
+      "poster": "./data/posters/73639.jpg",
+      "imdb": "tt4196776",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Thriller"
       ]
     },
     {
@@ -16972,5 +17039,5 @@
       ]
     }
   ],
-  "lastGenerated": "2026-06-05T18:04:56.889Z"
+  "lastGenerated": "2026-06-06T13:43:05.742Z"
 }
