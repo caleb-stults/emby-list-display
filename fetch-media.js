@@ -113,17 +113,28 @@ async function run() {
         const moviesList = await queryLibraryContents("Movie");
         const tvShowsList = await queryLibraryContents("Series", tvDirectoryId);
 
-        const structuredPayload = {
+        const newPayload = {
             movies: moviesList,
             tvShows: tvShowsList,
             lastGenerated: new Date().toISOString()
         };
 
-        fs.writeFileSync(
-            path.join(DATA_DIR, 'media.json'), 
-            JSON.stringify(structuredPayload, null, 2)
-        );
+        const filePath = path.join(DATA_DIR, 'media.json');
+        
+        if (fs.existsSync(filePath)) {
+            const oldData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+            const newData = JSON.parse(JSON.stringify(newPayload));
+            
+            delete oldData.lastGenerated;
+            delete newData.lastGenerated;
 
+            if (JSON.stringify(oldData) === JSON.stringify(newData)) {
+                console.log("No library changes detected. Skipping file write.");
+                return;
+            }
+        }
+
+        fs.writeFileSync(filePath, JSON.stringify(newPayload, null, 2));
         console.log(`Success! Synchronized ${moviesList.length} movies and ${tvShowsList.length} shows.`);
     } catch (globalError) {
         console.error("System pipeline routine failure:", globalError);
