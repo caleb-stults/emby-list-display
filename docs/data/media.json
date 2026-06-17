@@ -10678,6 +10678,18 @@
       ]
     },
     {
+      "id": "73934",
+      "title": "Perfect Blue",
+      "year": 1998,
+      "overview": "Rising pop star Mima quits singing to pursue a career as an actress. After she takes up a role on a popular detective show, her handlers and collaborators begin turning up murdered. Harboring feelings of guilt and haunted by visions of her former self, Mima's reality and fantasy meld into a frenzied paranoia.",
+      "poster": "./data/posters/73934.jpg",
+      "imdb": "tt0156887",
+      "genres": [
+        "Animation",
+        "Thriller"
+      ]
+    },
+    {
       "id": "691",
       "title": "The Perks of Being a Wallflower",
       "year": 2012,
@@ -17039,5 +17051,5 @@
       ]
     }
   ],
-  "lastGenerated": "2026-06-09T02:30:03.041Z"
+  "lastGenerated": "2026-06-17T02:30:03.391Z"
 }
