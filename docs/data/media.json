@@ -10806,7 +10806,8 @@
       "imdb": "tt11003218",
       "genres": [
         "Drama",
-        "Thriller"
+        "Thriller",
+        "Mystery"
       ]
     },
     {
@@ -16125,6 +16126,20 @@
       "genres": []
     },
     {
+      "id": "73986",
+      "title": "Breaking Bad",
+      "year": 2008,
+      "overview": "When Walter White, a chemistry teacher, is diagnosed with Stage III cancer and given a prognosis of two years left to live, he chooses to enter a dangerous world of drugs and crime with the intent to secure his family's financial security.",
+      "poster": "./data/posters/73986.jpg",
+      "imdb": "tt0903747",
+      "genres": [
+        "Drama",
+        "Crime",
+        "Thriller",
+        "Western"
+      ]
+    },
+    {
       "id": "39709",
       "title": "Captain Ahab: The Story of Dave Stieb",
       "year": 2021,
@@ -17051,5 +17066,5 @@
       ]
     }
   ],
-  "lastGenerated": "2026-06-29T02:30:05.194Z"
+  "lastGenerated": "2026-07-01T02:30:05.600Z"
 }
