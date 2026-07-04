@@ -1,0 +1,21 @@
+name: Sync Media Catalog
+on:
+  schedule:
+    - cron: '30 2 * * *'
+  workflow_dispatch: # This allows you to click "Run workflow" manually
+
+jobs:
+  sync:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Sync Script
+        run: node fetch-media.js
+        env:
+          EMBY_URL: ${{ secrets.EMBY_URL }}
+          EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}

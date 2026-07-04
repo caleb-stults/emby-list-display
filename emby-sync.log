@@ -1,0 +1,604 @@
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main f5e0872] Automated Sync: Media database update 2026-06-06 13:43
+ 6 files changed, 68 insertions(+), 1 deletion(-)
+ create mode 100644 docs/data/posters/73639.jpg
+ create mode 100644 docs/data/posters/73640.jpg
+ create mode 100644 docs/data/posters/73641.jpg
+ create mode 100644 docs/data/posters/73642.jpg
+ create mode 100644 docs/data/posters/73643.jpg
+To https://github.com/caleb-stults/emby-list-display.git
+   c4d3c23..f5e0872  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ suppress logs { quiet: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 25ed187] Automated Sync: Media database update 2026-06-06 13:44
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   f5e0872..25ed187  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ suppress logs { quiet: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main e97df5c] Automated Sync: Media database update 2026-06-06 13:45
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   25ed187..e97df5c  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ override existing { override: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 76eee32] Automated Sync: Media database update 2026-06-06 13:46
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   e97df5c..76eee32  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 5091b45] Automated Sync: Media database update 2026-06-06 13:47
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   76eee32..5091b45  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 7d1ad4b] Automated Sync: Media database update 2026-06-06 13:48
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   5091b45..7d1ad4b  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ override existing { override: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 1c73783] Automated Sync: Media database update 2026-06-06 13:49
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   7d1ad4b..1c73783  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ override existing { override: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 6ce4b8c] Automated Sync: Media database update 2026-06-06 13:50
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   1c73783..6ce4b8c  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main d0611f5] Automated Sync: Media database update 2026-06-07 02:30
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   6ce4b8c..d0611f5  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ override existing { override: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 8a57fec] Automated Sync: Media database update 2026-06-08 02:30
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   d0611f5..8a57fec  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1254 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 7f7bd5c] Automated Sync: Media database update 2026-06-09 02:30
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   8a57fec..7f7bd5c  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ enable debugging { debug: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ suppress logs { quiet: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ suppress logs { quiet: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ override existing { override: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1255 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main e9cf473] Automated Sync: Media database update 2026-06-17 02:30
+ 2 files changed, 13 insertions(+), 1 deletion(-)
+ create mode 100644 docs/data/posters/73934.jpg
+To https://github.com/caleb-stults/emby-list-display.git
+   30c425d..e9cf473  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌁ auth for agents [www.vestauth.com]
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ override existing { override: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ enable debugging { debug: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ override existing { override: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ override existing { override: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ enable debugging { debug: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1255 movies and 77 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 0224056] Automated Sync: Media database update 2026-06-29 02:30
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   e9cf473..0224056  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ suppress logs { quiet: true }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1255 movies and 78 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main ff93d4b] Automated Sync: Media database update 2026-07-01 02:30
+ 2 files changed, 17 insertions(+), 2 deletions(-)
+ create mode 100644 docs/data/posters/73986.jpg
+To https://github.com/caleb-stults/emby-list-display.git
+   0224056..ff93d4b  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ◈ secrets for agents [www.dotenvx.com]
+Successfully detected TV Library: "TV shows" (ID: 7273)
+No library changes detected. Skipping file write.
+Media inventory modifications discovered. Commencing code sync sequences...
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	deleted:    public/index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	emby-sync.log
+
+no changes added to commit (use "git add" and/or "git commit -a")
+Everything up-to-date
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ⌘ multiple files { path: ['.env.local', '.env'] }
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1255 movies and 78 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 631dde9] Automated Sync: Media database update 2026-07-03 02:30
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+To https://github.com/caleb-stults/emby-list-display.git
+   ff93d4b..631dde9  main -> main
+From https://github.com/caleb-stults/emby-list-display
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+◇ injected env (2) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+Successfully detected TV Library: "TV shows" (ID: 7273)
+Success! Synchronized 1255 movies and 78 shows.
+Media inventory modifications discovered. Commencing code sync sequences...
+[main 6ea750a] Automated Sync: Media database update 2026-07-04 02:30
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+ create mode 100644 docs/data/posters/74362.jpg
+To https://github.com/caleb-stults/emby-list-display.git
+   631dde9..6ea750a  main -> main
