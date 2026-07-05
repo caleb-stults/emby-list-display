@@ -1,7 +1,9 @@
 const fs = require('fs');
 const path = require('path');
 
-require('dotenv').config();
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config();
+}
 
 const EMBY_URL = process.env.EMBY_URL.replace(/\/$/, "");
 const API_KEY = process.env.EMBY_API_KEY;

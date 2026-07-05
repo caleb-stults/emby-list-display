@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     jq \
     libicu-dev \
     ca-certificates \
+    npm \
     gnupg \
     && rm -rf /var/lib/apt/lists/*
 

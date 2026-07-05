@@ -8,10 +8,9 @@ This project runs a Node.js scraper script (`fetch-media.js`) on the local home 
 ## System Architecture Layout
 
 ```text
-├── .env                 # Secret API keys and loopback server IP configurations
-├── .gitignore           # Safeguards protecting local environments from being leaked
+├── runner/      # Docker configuration for self-hosted runner
+├── .gitignore           # Safeguards protecting local environments
 ├── fetch-media.js       # Core Node.js API collection engine
-├── sync.sh              # Orchestration bash script running Git deployments
 └── docs/                # Public GitHub Pages Web Root Folder
     ├── index.html       # Client interface layout dashboard
     ├── icon.png         # User-provided site icon and favicon asset
@@ -21,8 +20,26 @@ This project runs a Node.js scraper script (`fetch-media.js`) on the local home 
 ```
 
 ## Setup & Operation
-1. Configure local endpoint keys inside `.env` (`EMBY_URL=http://127.0.0.1:8096`, `EMBY_API_KEY`).
-2. Run `npm install dotenv` to map environment configuration variables.
-3. Drop your custom asset named exactly `icon.png` into the `docs/` folder to serve as the favicon and page title icon.
-4. Execute `./sync.sh` to populate data arrays and perform the initial branch push.
-5. Register a local system crontab line to automate library synchronization nightly.
+1. GitHub Secrets: Configure `EMBY_URL` and `EMBY_API_KEY` in your repository under Settings > Secrets and variables > Actions.
+2. Assets: Place your custom asset named exactly `icon.png` into the `docs/` folder to serve as the site icon.
+3. Runner: Build and deploy the infrastructure (see below). Once the runner is active, GitHub Actions will handle the synchronization automatically on the schedule defined in your workflow.
+
+## Runner Infrastructure
+
+The `runner` directory contains the Docker configuration for the GitHub self-hosted runner.
+
+### How to build:
+```bash
+cd runner
+docker build -t custom-gh-runner:latest .
+```
+
+### How to run:
+```bash
+docker run -d --name runner-instance \
+  --restart unless-stopped \
+  -e REPO_URL="[https://github.com/caleb-stults/emby-list-display](https://github.com/caleb-stults/emby-list-display)" \
+  -e RUNNER_TOKEN="<GET_NEW_TOKEN_FROM_GITHUB>" \
+  custom-gh-runner:latest
+```
+**Note:** This runner is ephemeral. If you restart the container or rebuild the image, you will need to generate a new registration token from the GitHub repository Settings > Actions > Runners page.
