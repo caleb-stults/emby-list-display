@@ -3,12 +3,12 @@
 A lightweight, automated media dashboard that syncs a self-hosted Emby library catalog with a static public web page hosted on GitHub Pages.
 
 ## What It Does
-This project runs a Node.js scraper script (`fetch-media.js`) on the local home server via a daily cron job. The script queries a local Emby media server API using 4.9+ collection endpoints, optimizes the metadata, downloads relevant poster images, and outputs a compressed JSON payload inside a `/docs` web root directory. A companion shell script (`sync.sh`) handles tracking differences and pushes updates automatically to GitHub Pages. The public web interface serves as a static display board.
+This project uses a Node.js scraper script (fetch-media.js) executed by a GitHub Actions self-hosted runner. It queries your local Emby media server API, optimizes the metadata, and updates the public-facing site automatically.
 
 ## System Architecture Layout
 
 ```text
-├── runner/      # Docker configuration for self-hosted runner
+├── runner/              # Docker configuration for self-hosted runner
 ├── .gitignore           # Safeguards protecting local environments
 ├── fetch-media.js       # Core Node.js API collection engine
 └── docs/                # Public GitHub Pages Web Root Folder
