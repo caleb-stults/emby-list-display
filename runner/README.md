@@ -5,6 +5,7 @@ This directory contains the Docker configuration for the GitHub self-hosted runn
 ### How to build:
 ```bash
 docker build -t custom-gh-runner:latest ./runner
+```
 
 ### How to run:
 ```bash
