@@ -1,8 +1,9 @@
 name: Sync Media Catalog
+
 on:
-  schedule:
-    - cron: '30 2 * * *'
-  workflow_dispatch: # This allows you to click "Run workflow" manually
+  push:
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   sync:
