@@ -29,7 +29,8 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin main
-          git rebase origin/main
+          git reset origin/main
+          node fetch-media.js
           git add docs/
           # Only push if there are changes
           if ! git diff-index --quiet HEAD; then
