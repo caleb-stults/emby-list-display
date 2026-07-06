@@ -29,14 +29,12 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git fetch origin main
-          git reset --hard origin/main
+          git rebase origin/main
           git add docs/
           # Only push if there are changes
           if ! git diff-index --quiet HEAD; then
             git commit -m "Automated Sync: Update media catalog $(date +'%Y-%m-%d')"
-            for i in {1..5}; do
-              git pull --rebase origin main && git push origin main && break || sleep 5
-            done
+            git push origin main
           else
             echo "No library changes detected."
           fi
