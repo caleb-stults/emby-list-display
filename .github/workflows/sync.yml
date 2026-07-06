@@ -28,14 +28,13 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin main
-          git reset origin/main
-          node fetch-media.js
           git add docs/
           # Only push if there are changes
           if ! git diff-index --quiet HEAD; then
             git commit -m "Automated Sync: Update media catalog $(date +'%Y-%m-%d')"
-            git push origin main
+            git fetch origin main
+            git rebase origin main
+            git push origin main --force-with-lease
           else
             echo "No library changes detected."
           fi
