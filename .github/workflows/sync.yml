@@ -32,9 +32,7 @@ jobs:
           # Only push if there are changes
           if ! git diff-index --quiet HEAD; then
             git commit -m "Automated Sync: Update media catalog $(date +'%Y-%m-%d')"
-            git fetch origin main
-            git rebase origin main
-            git push origin main --force-with-lease
+            git push origin main --force
           else
             echo "No library changes detected."
           fi
