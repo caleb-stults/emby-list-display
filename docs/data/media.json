@@ -643,6 +643,17 @@
       ]
     },
     {
+      "id": "74371",
+      "title": "The American Scream",
+      "year": 2012,
+      "overview": "An original documentary which follows three families in a small seaside town in Massachusetts as they prepare for their annual home made haunted houses. This story highlights their long journey from planning to opening day and cleanup until next year and the obstacles which face them during the process.",
+      "poster": "./data/posters/74371.jpg",
+      "imdb": "tt2075373",
+      "genres": [
+        "Documentary"
+      ]
+    },
+    {
       "id": "21232",
       "title": "American Sniper",
       "year": 2014,
@@ -1511,6 +1522,18 @@
       "genres": [
         "Drama",
         "History"
+      ]
+    },
+    {
+      "id": "74370",
+      "title": "Best Worst Movie",
+      "year": 2009,
+      "overview": "A look at the making of the film Troll 2 (1990) and its journey from being crowned the \"worst film of all time\" to a cherished cult classic.",
+      "poster": "./data/posters/74370.jpg",
+      "imdb": "tt1144539",
+      "genres": [
+        "Documentary",
+        "Comedy"
       ]
     },
     {
@@ -4261,6 +4284,18 @@
       ]
     },
     {
+      "id": "74367",
+      "title": "Evil Dead Rise",
+      "year": 2023,
+      "overview": "A reunion between two estranged sisters gets cut short by the rise of flesh-possessing demons, thrusting them into a primal battle for survival as they face the most nightmarish version of family imaginable.",
+      "poster": "./data/posters/74367.jpg",
+      "imdb": "tt13345606",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ]
+    },
+    {
       "id": "37621",
       "title": "Ex Machina",
       "year": 2015,
@@ -4351,6 +4386,19 @@
       "poster": "./data/posters/48102.jpg",
       "imdb": "tt0805526",
       "genres": [
+        "Drama"
+      ]
+    },
+    {
+      "id": "74369",
+      "title": "The Fall",
+      "year": 2006,
+      "overview": "In a hospital on the outskirts of 1920s Los Angeles, an injured stuntman begins to tell a fellow patient, a little girl with a broken arm, a fantastic story about 5 mythical heroes. Thanks to his fractured state of mind and her vivid imagination, the line between fiction and reality starts to blur as the tale advances.",
+      "poster": "./data/posters/74369.jpg",
+      "imdb": "tt0460791",
+      "genres": [
+        "Adventure",
+        "Fantasy",
         "Drama"
       ]
     },
@@ -7875,6 +7923,17 @@
       ]
     },
     {
+      "id": "74372",
+      "title": "Lake Mungo Revisited",
+      "year": 2025,
+      "overview": "Features new interviews with the cast and crew, along with expert opinions and unearthed behind-the-scenes footage, to explore the enduring legacy and creepy realism of the mockumentary.",
+      "poster": "./data/posters/74372.jpg",
+      "imdb": "tt38125859",
+      "genres": [
+        "Documentary"
+      ]
+    },
+    {
       "id": "50342",
       "title": "La La Land",
       "year": 2016,
@@ -8999,6 +9058,19 @@
       ]
     },
     {
+      "id": "74368",
+      "title": "The Matrix Resurrections",
+      "year": 2021,
+      "overview": "Plagued by strange memories, Neo's life takes an unexpected turn when he finds himself back inside the Matrix.",
+      "poster": "./data/posters/74368.jpg",
+      "imdb": "tt10838180",
+      "genres": [
+        "Science Fiction",
+        "Action",
+        "Adventure"
+      ]
+    },
+    {
       "id": "821",
       "title": "The Matrix Revolutions",
       "year": 2003,
@@ -9529,7 +9601,8 @@
       "genres": [
         "Animation",
         "Comedy",
-        "Family"
+        "Family",
+        "Fantasy"
       ]
     },
     {
@@ -17065,5 +17138,5 @@
       ]
     }
   ],
-  "lastGenerated": "2026-07-05T02:30:05.020Z"
+  "lastGenerated": "2026-07-06T06:16:36.344Z"
 }
