@@ -3,15 +3,13 @@ name: Sync Media Catalog
 on:
   workflow_dispatch:
   schedule:
-    - cron: '30 2 * * *'
+    # 09:30 UTC = 02:30 AM Mountain Time
+    - cron: '30 9 * * *'
 
 jobs:
   sync:
     runs-on: self-hosted
     steps:
-      - name: List files
-        run: ls -la
-
       - name: Checkout Code
         uses: actions/checkout@v4
 
@@ -19,7 +17,20 @@ jobs:
         run: npm install
 
       - name: Run Sync Script
-        run: /usr/bin/node fetch-media.js
+        run: node fetch-media.js
         env:
           EMBY_URL: ${{ secrets.EMBY_URL }}
           EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}
+
+      - name: Commit and Push Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          # Only push if there are changes
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "Automated Sync: Update media catalog $(date +'%Y-%m-%d')"
+            git push
+          else
+            echo "No library changes detected."
+          fi
