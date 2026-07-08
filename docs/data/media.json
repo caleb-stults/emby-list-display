@@ -3646,6 +3646,20 @@
       "dateAdded": "2023-11-11T22:40:14.0000000Z"
     },
     {
+      "id": "74516",
+      "title": "Dead Man's Wire",
+      "year": 2026,
+      "overview": "In 1977, former real estate developer Tony Kiritsis puts a dead man's switch on himself and the mortgage banker who did him wrong, demanding $5 million and a personal apology.",
+      "poster": "./data/posters/74516.jpg",
+      "imdb": "tt15181326",
+      "genres": [
+        "Crime",
+        "Drama",
+        "Thriller"
+      ],
+      "dateAdded": "2026-07-08T10:42:09.0000000Z"
+    },
+    {
       "id": "34870",
       "title": "Dead Poets Society",
       "year": 1989,
@@ -4159,6 +4173,20 @@
         "Comedy"
       ],
       "dateAdded": "2023-11-10T23:44:14.0000000Z"
+    },
+    {
+      "id": "74515",
+      "title": "The Drama",
+      "year": 2026,
+      "overview": "A happily engaged couple is put to the test when an unexpected turn sends their wedding week off the rails.",
+      "poster": "./data/posters/74515.jpg",
+      "imdb": "tt33071426",
+      "genres": [
+        "Romance",
+        "Comedy",
+        "Drama"
+      ],
+      "dateAdded": "2026-07-08T16:35:38.0000000Z"
     },
     {
       "id": "38374",
@@ -8020,7 +8048,7 @@
       "id": "72648",
       "title": "Journey To The Center Of The Earth",
       "year": 1999,
-      "overview": "No description summary available.",
+      "overview": "No description.",
       "poster": "./data/posters/72648.jpg",
       "imdb": null,
       "genres": [],
@@ -17462,7 +17490,7 @@
       "id": "41983",
       "title": "The Bob Emergency",
       "year": 2019,
-      "overview": "No description summary available.",
+      "overview": "No description.",
       "poster": "./data/posters/41983.jpg",
       "imdb": "tt13798252",
       "genres": [],
@@ -18356,7 +18384,7 @@
       "id": "41188",
       "title": "The Chosen",
       "year": 2021,
-      "overview": "No description summary available.",
+      "overview": "No description.",
       "poster": "./data/posters/41188.jpg",
       "imdb": null,
       "genres": [],
@@ -18477,5 +18505,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-07-08T16:12:01.282Z"
+  "lastGenerated": "2026-07-08T17:55:05.807Z"
 }
