@@ -70,7 +70,7 @@ async function queryLibraryContents(itemType, parentId = null) {
         api_key: API_KEY,
         IncludeItemTypes: itemType,
         Recursive: 'true',
-        Fields: 'Overview,ProductionYear,ImageTags,ProviderIds,Genres',
+        Fields: 'Overview,ProductionYear,ImageTags,ProviderIds,Genres,DateCreated',
         IsMissing: 'false'
     });
 
@@ -97,7 +97,8 @@ async function queryLibraryContents(itemType, parentId = null) {
             overview: item.Overview || 'No description summary available.',
             poster: localPosterUrl,
             imdb: imdbId,
-            genres: item.Genres || []
+            genres: item.Genres || [],
+            dateAdded: item.DateCreated
         });
     }
 

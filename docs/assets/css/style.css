@@ -1,0 +1,206 @@
+:root {
+    --bg-color: #141414;
+    --card-bg: #1f1f1f;
+    --text-main: #ffffff;
+    --text-muted: #aaaaaa;
+    --accent-purple: #721ac4;
+    --input-bg: #2a2a2a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    padding: 20px;
+    line-height: 1.5;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 20px auto 30px auto;
+    text-align: center;
+}
+
+.title-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.brand-icon {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+h1 {
+    color: var(--accent-purple);
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+}
+
+.welcome-blurb {
+    max-width: 650px;
+    margin: 0 auto 20px auto;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+.search-container {
+    max-width: 800px;
+    margin: 0 auto 10px auto;
+    padding: 0 15px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.search-input {
+    padding: 12px 20px;
+    background-color: var(--input-bg);
+    border: 2px solid transparent;
+    border-radius: 25px;
+    color: var(--text-main);
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: var(--accent-purple);
+    box-shadow: 0 0 10px rgba(114, 26, 196, 0.3);
+}
+
+.filter-nav {
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 15px;
+}
+
+.filter-btn {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: color 0.2s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    color: var(--text-main);
+}
+
+.filter-btn.active {
+    border-bottom: 3px solid var(--accent-purple);
+}
+
+.media-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 25px;
+}
+
+@media (max-width: 600px) {
+    .media-grid { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+}
+
+.media-card {
+    background-color: var(--card-bg);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+}
+
+.media-card:hover {
+    transform: scale(1.05);
+}
+
+.poster-wrapper {
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    background-color: #2a2a2a;
+    position: relative;
+}
+
+.poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.info-panel {
+    padding: 12px;
+}
+
+.card-title {
+    font-size: 0.95rem;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 4px;
+}
+
+.card-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.toast-notification {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333333;
+    color: var(--text-main);
+    padding: 14px 28px;
+    border-radius: 30px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    border-left: 4px solid var(--accent-purple);
+    font-size: 0.95rem;
+    font-weight: bold;
+    z-index: 9999;
+    transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.toast-notification.show {
+    bottom: 40px;
+}
+
+.new-badge { 
+    position: absolute; 
+    top: 8px; 
+    right: 8px; 
+    background: var(--accent-purple); 
+    color: white; 
+    font-size: 0.7rem; 
+    padding: 2px 6px; 
+    border-radius: 4px; 
+    font-weight: bold; 
+    z-index: 10; 
+}
