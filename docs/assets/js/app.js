@@ -39,7 +39,14 @@ function filterAndRender() {
     const search = document.getElementById('library-search').value.trim().toLowerCase();
     const sort = document.getElementById('sort-select').value;
     const genre = document.getElementById('genre-select').value;
-    let data = currentTab === 'movies' ? serverPayload.movies : serverPayload.tvShows;
+    let data;
+    if (currentTab === 'new') {
+        // Combine both, then filter by isRecent
+        data = [...serverPayload.movies, ...serverPayload.tvShows]
+               .filter(i => isRecent(i.dateAdded));
+    } else {
+        data = currentTab === 'tvShows' ? serverPayload.tvShows : serverPayload.movies;
+    }
 
     if (genre !== 'all') data = data.filter(i => (i.genres || []).includes(genre));
     if (search) data = data.filter(i => i.title.toLowerCase().includes(search));
@@ -94,7 +101,8 @@ function showToast(message) {
 function switchTab(type, el) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     el.classList.add('active');
-    currentTab = type === 'tv' ? 'tvShows' : 'movies';
+
+    currentTab = (type === 'tv') ? 'tvShows' : type; 
     filterAndRender();
 }
 
