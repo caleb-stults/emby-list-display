@@ -12,17 +12,16 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Pull and Run Sync Container
-        run: |
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
-          docker run --rm \
-            -v "$PWD/docs/data:/app/docs/data" \
-            -e EMBY_URL="${{ secrets.EMBY_URL }}" \
-            -e EMBY_API_KEY="${{ secrets.EMBY_API_KEY }}" \
-            ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Sync Script
+        env:
+          EMBY_URL: ${{ secrets.EMBY_URL }}
+          EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}
+          NODE_ENV: production
+        run: node fetch-media.js
 
       - name: Commit and Push Changes
         run: |
@@ -31,6 +30,7 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
           git add docs/
+          
           # Only commit if there are changes
           if ! git diff-index --quiet HEAD; then
             git commit -m "Automated Sync: Update media catalog $(date +'%Y-%m-%d')"
