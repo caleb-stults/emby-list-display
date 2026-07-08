@@ -8,7 +8,8 @@ if (process.env.NODE_ENV !== 'production') {
 const EMBY_URL = process.env.EMBY_URL.replace(/\/$/, "");
 const API_KEY = process.env.EMBY_API_KEY;
 
-const WEB_ROOT = path.join(__dirname, 'docs');
+// Use process.cwd() to ensure we are targeting the actual working directory of the runner
+const WEB_ROOT = path.join(process.cwd(), 'docs');
 const DATA_DIR = path.join(WEB_ROOT, 'data');
 const POSTER_DIR = path.join(DATA_DIR, 'posters');
 
@@ -20,119 +21,59 @@ async function getCollectionIdByType() {
     try {
         const response = await fetch(`${EMBY_URL}/Library/MediaFolders?api_key=${API_KEY}`);
         if (!response.ok) return null;
-
         const data = await response.json();
-        const match = data.Items.find(item => item.CollectionType === 'tvshows');
-
-        if (match) {
-            return match.Id;
-        } else {
-            console.warn("Could not find a library with CollectionType 'tvshows'.");
-            return null;
-        }
+        return data.Items.find(item => item.CollectionType === 'tvshows')?.Id || null;
     } catch (err) {
-        console.error(`Error resolving TV collection folder ID:`, err.message);
         return null;
     }
 }
 
 async function downloadPosterImage(itemId, imageTag) {
     if (!imageTag) return null;
-
     const fileName = `${itemId}.jpg`;
     const destinationPath = path.join(POSTER_DIR, fileName);
-    const webRelativePath = `./data/posters/${fileName}`;
-
-    if (fs.existsSync(destinationPath)) {
-        return webRelativePath;
-    }
-
-    const targetUrl = `${EMBY_URL}/Items/${itemId}/Images/Primary?api_key=${API_KEY}&maxWidth=400`;
+    if (fs.existsSync(destinationPath)) return `./data/posters/${fileName}`;
 
     try {
-        const response = await fetch(targetUrl);
+        const response = await fetch(`${EMBY_URL}/Items/${itemId}/Images/Primary?api_key=${API_KEY}&maxWidth=400`);
         if (!response.ok) return null;
-
-        const arrayBuffer = await response.arrayBuffer();
-        const buffer = Buffer.from(arrayBuffer);
-        fs.writeFileSync(destinationPath, buffer);
-
-        return webRelativePath;
-    } catch (err) {
-        console.error(`Error writing image asset for ID ${itemId}:`, err.message);
-        return null;
-    }
+        fs.writeFileSync(destinationPath, Buffer.from(await response.arrayBuffer()));
+        return `./data/posters/${fileName}`;
+    } catch { return null; }
 }
 
 async function queryLibraryContents(itemType, parentId = null) {
-    const queryParams = new URLSearchParams({
-        api_key: API_KEY,
-        IncludeItemTypes: itemType,
-        Recursive: 'true',
-        Fields: 'Overview,ProductionYear,ImageTags,ProviderIds,Genres,DateCreated',
-        IsMissing: 'false'
-    });
-
-    if (parentId) {
-        queryParams.append('ParentId', parentId);
-    }
-
-    const endpointUrl = `${EMBY_URL}/Items?${queryParams.toString()}`;
-    const response = await fetch(endpointUrl);
-    if (!response.ok) throw new Error(`HTTP network error returned: ${response.status}`);
-
+    const queryParams = new URLSearchParams({ api_key: API_KEY, IncludeItemTypes: itemType, Recursive: 'true', Fields: 'Overview,ProductionYear,ImageTags,ProviderIds,Genres,DateCreated', IsMissing: 'false' });
+    if (parentId) queryParams.append('ParentId', parentId);
+    
+    const response = await fetch(`${EMBY_URL}/Items?${queryParams.toString()}`);
     const data = await response.json();
-    const cleanCatalog = [];
-
-    for (const item of data.Items) {
-        const primaryImageTag = item.ImageTags ? item.ImageTags.Primary : null;
-        const localPosterUrl = await downloadPosterImage(item.Id, primaryImageTag);
-        const imdbId = item.ProviderIds ? (item.ProviderIds.Imdb || item.ProviderIds.IMDB || item.ProviderIds.imdb) : null;
-
-        cleanCatalog.push({
-            id: item.Id,
-            title: item.Name,
-            year: item.ProductionYear || 'N/A',
-            overview: item.Overview || 'No description summary available.',
-            poster: localPosterUrl,
-            imdb: imdbId,
-            genres: item.Genres || [],
-            dateAdded: item.DateCreated
-        });
-    }
-
-    return cleanCatalog;
+    
+    return Promise.all(data.Items.map(async item => ({
+        id: item.Id,
+        title: item.Name,
+        year: item.ProductionYear || 'N/A',
+        overview: item.Overview || 'No description.',
+        poster: await downloadPosterImage(item.Id, item.ImageTags?.Primary),
+        imdb: item.ProviderIds?.Imdb || item.ProviderIds?.IMDB || null,
+        genres: item.Genres || [],
+        dateAdded: item.DateCreated
+    })));
 }
 
 async function run() {
-    if (!EMBY_URL || !API_KEY) {
-        console.error("Critical configuration failure.");
-        process.exit(1);
-    }
+    const tvDirectoryId = await getCollectionIdByType();
+    const newPayload = {
+        movies: await queryLibraryContents("Movie"),
+        tvShows: await queryLibraryContents("Series", tvDirectoryId),
+        lastGenerated: new Date().toISOString()
+    };
 
-    try {
-        const tvDirectoryId = await getCollectionIdByType();
-        const moviesList = await queryLibraryContents("Movie");
-        const tvShowsList = await queryLibraryContents("Series", tvDirectoryId);
-
-        const newPayload = {
-            movies: moviesList,
-            tvShows: tvShowsList,
-            lastGenerated: new Date().toISOString()
-        };
-
-        const filePath = path.join(DATA_DIR, 'media.json');
-
-        // FORCE FULL REBUILD: Always overwrite to ensure synchronization
-        console.log("Forcing full library refresh...");
-        fs.writeFileSync(filePath, JSON.stringify(newPayload, null, 2));
-        
-        console.log(`Success! Synchronized ${moviesList.length} movies and ${tvShowsList.length} shows.`);
-        
-    } catch (globalError) {
-        console.error("System failure:", globalError);
-        process.exit(1);
-    }
+    const filePath = path.join(DATA_DIR, 'media.json');
+    console.log(`DEBUG: Writing to ${filePath}`);
+    
+    fs.writeFileSync(filePath, JSON.stringify(newPayload, null, 2));
+    console.log("Write success.");
 }
 
-run();
+run().catch(console.error);

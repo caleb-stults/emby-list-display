@@ -3,7 +3,6 @@ name: Sync Media Catalog
 on:
   workflow_dispatch:
   schedule:
-    # 09:30 UTC = 02:30 AM Mountain Time
     - cron: '30 9 * * *'
 
 jobs:
@@ -27,15 +26,14 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git fetch origin main
-          git reset --hard origin/main
-          git add docs/
           
-          # Only commit if there are changes
-          if ! git diff-index --quiet HEAD; then
+          # Add all changes (including new posters and media.json)
+          git add docs/data/
+          
+          # Check if there are changes to commit
+          if ! git diff-index --quiet HEAD -- docs/data/; then
             git commit -m "Automated Sync: Update media catalog $(date +'%Y-%m-%d')"
-            git push origin main --force
+            git push origin main
           else
-            echo "No library changes detected."
-            exit 0
+            echo "No changes detected to commit."
           fi
