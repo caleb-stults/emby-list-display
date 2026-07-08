@@ -20,7 +20,7 @@ jobs:
   # STEP 2: Cloud Sync (runs on GitHub's infrastructure)
   sync:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
