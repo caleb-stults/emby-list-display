@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== 'production') {
 const EMBY_URL = process.env.EMBY_URL.replace(/\/$/, "");
 const API_KEY = process.env.EMBY_API_KEY;
 
-const WEB_ROOT = path.join(__dirname, 'docs'); 
+const WEB_ROOT = path.join(__dirname, 'docs');
 const DATA_DIR = path.join(WEB_ROOT, 'data');
 const POSTER_DIR = path.join(DATA_DIR, 'posters');
 
@@ -20,10 +20,10 @@ async function getCollectionIdByType() {
     try {
         const response = await fetch(`${EMBY_URL}/Library/MediaFolders?api_key=${API_KEY}`);
         if (!response.ok) return null;
-        
+
         const data = await response.json();
         const match = data.Items.find(item => item.CollectionType === 'tvshows');
-        
+
         if (match) {
             console.log(`Successfully detected TV Library: "${match.Name}" (ID: ${match.Id})`);
             return match.Id;
@@ -88,8 +88,8 @@ async function queryLibraryContents(itemType, parentId = null) {
     for (const item of data.Items) {
         const primaryImageTag = item.ImageTags ? item.ImageTags.Primary : null;
         const localPosterUrl = await downloadPosterImage(item.Id, primaryImageTag);
-        const imdbId = (item.ProviderIds && (item.ProviderIds.Imdb || item.ProviderIds.IMDB || item.ProviderIds.imdb)) || null;
-        
+        const imdbId = item.ProviderIds ? (item.ProviderIds.Imdb || item.ProviderIds.IMDB || item.ProviderIds.imdb) : null;
+
         cleanCatalog.push({
             id: item.Id,
             title: item.Name,
@@ -123,22 +123,31 @@ async function run() {
         };
 
         const filePath = path.join(DATA_DIR, 'media.json');
-        
-        if (fs.existsSync(filePath)) {
-            const oldData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-            const newData = JSON.parse(JSON.stringify(newPayload));
-            
-            delete oldData.lastGenerated;
-            delete newData.lastGenerated;
 
-            if (JSON.stringify(oldData) === JSON.stringify(newData)) {
-                console.log("No library changes detected. Skipping file write.");
-                return;
-            }
+        // 1. Read existing data
+        let oldData = { movies: [], tvShows: [] };
+        if (fs.existsSync(filePath)) {
+            oldData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
         }
 
-        fs.writeFileSync(filePath, JSON.stringify(newPayload, null, 2));
-        console.log(`Success! Synchronized ${moviesList.length} movies and ${tvShowsList.length} shows.`);
+        // 2. Prepare for comparison
+        const newDataForCompare = JSON.parse(JSON.stringify(newPayload));
+        const oldDataForCompare = JSON.parse(JSON.stringify(oldData));
+        delete oldDataForCompare.lastGenerated;
+        delete newDataForCompare.lastGenerated;
+
+        // 3. Logic to determine if update is needed
+        const needsUpdate = (newDataForCompare.movies.length !== oldDataForCompare.movies.length) || 
+                            (newDataForCompare.tvShows.length !== oldDataForCompare.tvShows.length) ||
+                            (JSON.stringify(oldDataForCompare) !== JSON.stringify(newDataForCompare));
+
+        if (needsUpdate) {
+            console.log("Changes detected! Writing new media.json...");
+            fs.writeFileSync(filePath, JSON.stringify(newPayload, null, 2));
+            console.log(`Success! Synchronized ${moviesList.length} movies and ${tvShowsList.length} shows.`);
+        } else {
+            console.log("No library changes detected. Skipping file write.");
+        }
     } catch (globalError) {
         console.error("System pipeline routine failure:", globalError);
         process.exit(1);
