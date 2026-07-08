@@ -25,7 +25,6 @@ async function getCollectionIdByType() {
         const match = data.Items.find(item => item.CollectionType === 'tvshows');
 
         if (match) {
-            console.log(`Successfully detected TV Library: "${match.Name}" (ID: ${match.Id})`);
             return match.Id;
         } else {
             console.warn("Could not find a library with CollectionType 'tvshows'.");
@@ -107,7 +106,7 @@ async function queryLibraryContents(itemType, parentId = null) {
 
 async function run() {
     if (!EMBY_URL || !API_KEY) {
-        console.error("Critical configuration failure: Check your local .env key pairs.");
+        console.error("Critical configuration failure.");
         process.exit(1);
     }
 
@@ -124,32 +123,14 @@ async function run() {
 
         const filePath = path.join(DATA_DIR, 'media.json');
 
-        // 1. Read existing data
-        let oldData = { movies: [], tvShows: [] };
-        if (fs.existsSync(filePath)) {
-            oldData = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        }
-
-        // 2. Prepare for comparison
-        const newDataForCompare = JSON.parse(JSON.stringify(newPayload));
-        const oldDataForCompare = JSON.parse(JSON.stringify(oldData));
-        delete oldDataForCompare.lastGenerated;
-        delete newDataForCompare.lastGenerated;
-
-        // 3. Logic to determine if update is needed
-        const needsUpdate = (newDataForCompare.movies.length !== oldDataForCompare.movies.length) || 
-                            (newDataForCompare.tvShows.length !== oldDataForCompare.tvShows.length) ||
-                            (JSON.stringify(oldDataForCompare) !== JSON.stringify(newDataForCompare));
-
-        if (needsUpdate) {
-            console.log("Changes detected! Writing new media.json...");
-            fs.writeFileSync(filePath, JSON.stringify(newPayload, null, 2));
-            console.log(`Success! Synchronized ${moviesList.length} movies and ${tvShowsList.length} shows.`);
-        } else {
-            console.log("No library changes detected. Skipping file write.");
-        }
+        // FORCE FULL REBUILD: Always overwrite to ensure synchronization
+        console.log("Forcing full library refresh...");
+        fs.writeFileSync(filePath, JSON.stringify(newPayload, null, 2));
+        
+        console.log(`Success! Synchronized ${moviesList.length} movies and ${tvShowsList.length} shows.`);
+        
     } catch (globalError) {
-        console.error("System pipeline routine failure:", globalError);
+        console.error("System failure:", globalError);
         process.exit(1);
     }
 }
