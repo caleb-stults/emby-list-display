@@ -34,6 +34,7 @@ jobs:
           
           # Run the container. The container writes files to ./docs/data
           docker run --rm \
+            --network host \
             -e EMBY_URL \
             -e EMBY_API_KEY \
             -v "$(pwd)/docs/data:/app/docs/data" \
