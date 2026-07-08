@@ -12,25 +12,27 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Sync Script
+      - name: Run Sync Container
         env:
           EMBY_URL: ${{ secrets.EMBY_URL }}
           EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}
-          NODE_ENV: production
-        run: node fetch-media.js
+        run: |
+          # Pull the latest version we built
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
+          
+          # Run the container
+          # -v maps your local folder so the JSON/posters persist to your host
+          docker run --rm \
+            -e EMBY_URL \
+            -e EMBY_API_KEY \
+            -v "$(pwd)/docs/data:/app/docs/data" \
+            ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Add all changes (including new posters and media.json)
           git add docs/data/
-          
-          # Check if there are changes to commit
           if ! git diff-index --quiet HEAD -- docs/data/; then
             git commit -m "Automated Sync: Update media catalog $(date +'%Y-%m-%d')"
             git push origin main
