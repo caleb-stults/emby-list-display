@@ -9,6 +9,9 @@ jobs:
   # STEP 1: Quality Gate (runs on your infrastructure)
   test:
     runs-on: self-hosted
+    env:
+      EMBY_URL: ${{ secrets.EMBY_URL }}
+      EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - run: npm install
