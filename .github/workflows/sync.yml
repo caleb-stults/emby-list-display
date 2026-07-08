@@ -6,8 +6,18 @@ on:
     - cron: '30 9 * * *'
 
 jobs:
-  sync:
+  # STEP 1: Quality Gate (runs on your infrastructure)
+  test:
     runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm install
+      - run: npm test
+
+  # STEP 2: Cloud Sync (runs on GitHub's infrastructure)
+  sync:
+    needs: test
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -17,11 +27,9 @@ jobs:
           EMBY_URL: ${{ secrets.EMBY_URL }}
           EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}
         run: |
-          # Pull the latest version we built
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
           
-          # Run the container
-          # -v maps your local folder so the JSON/posters persist to your host
+          # Run the container. The container writes files to ./docs/data
           docker run --rm \
             -e EMBY_URL \
             -e EMBY_API_KEY \

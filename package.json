@@ -1,16 +1,17 @@
 {
   "name": "emby-list-display",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "fetch-media.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node fetch-media.js",
+    "test": "node -e 'require(\"dotenv\").config(); if (!process.env.EMBY_URL || !process.env.EMBY_API_KEY) { console.error(\"Missing environment variables!\"); process.exit(1); } else { console.log(\"Environment validated.\"); process.exit(0); }'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Scraper for Emby media catalog",
   "dependencies": {
-    "dotenv": "^17.4.2",
+    "dotenv": "^16.4.5",
     "node-fetch": "^3.3.2"
   }
 }
