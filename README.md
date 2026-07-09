@@ -48,3 +48,4 @@ docker run -d --name runner-instance \
   -e RUNNER_TOKEN="YOUR_NEW_TOKEN_HERE" \
   -v /var/run/docker.sock:/var/run/docker.sock \
   custom-gh-runner:latest
+```
