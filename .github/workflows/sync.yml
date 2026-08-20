@@ -37,7 +37,6 @@ jobs:
             -e EMBY_API_KEY \
             -v "$(pwd)/docs/data:/app/docs/data:z" \
             ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
-          sudo chown -R $USER:$USER docs/data/
 
       - name: Commit and Push Changes
         run: |
