@@ -34,7 +34,7 @@ jobs:
           
           # Run the container. The container writes files to ./docs/data
           docker run --rm \
-	    --user "$(id -u):$(id -g)" \
+            --user "$(id -u):$(id -g)" \
             --network host \
             -e EMBY_URL \
             -e EMBY_API_KEY \
