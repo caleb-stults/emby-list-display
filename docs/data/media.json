@@ -155,7 +155,7 @@
       "id": "46888",
       "title": "21 Jump Street",
       "year": 2012,
-      "overview": "When cops Schmidt and Jenko join the secret Jump Street unit, they use their youthful appearances to go under cover as high-school students. They trade in their guns and badges for backpacks, and set out to shut down a dangerous drug ring. But, as time goes on, Schmidt and Jenko discover that high school is nothing like it was just a few years earlier -- and, what's more, they must again confront the teenage terror and anxiety they thought they had left behind.",
+      "overview": "When cops Schmidt and Jenko join the secret Jump Street unit, they use their youthful appearances to go undercover as high school students. They trade in their guns and badges for backpacks, and set out to shut down a dangerous drug ring. But, as time goes on, Schmidt and Jenko discover that high school is nothing like it was just a few years earlier -- and, what's more, they must again confront the teenage terror and anxiety they thought they had left behind.",
       "poster": "./data/posters/46888.jpg",
       "imdb": "tt1232829",
       "genres": [
@@ -1117,7 +1117,7 @@
       "id": "45043",
       "title": "Assassin's Creed",
       "year": 2016,
-      "overview": "Through unlocked genetic memories that allow him to relive the adventures of his ancestor in 15th century Spain, Callum Lynch discovers he's a descendant of the secret 'Assassins' society. After gaining incredible knowledge and skills, he is now poised to take on the oppressive Knights Templar in the present day.",
+      "overview": "Through a technology that unlocks the genetic memories of his ancestor in 15th century Spain, Callum Lynch discovers he is a descendant of an ancient line of Assassins and amasses lethal skills to take on the oppressive Templar Order.",
       "poster": "./data/posters/45043.jpg",
       "imdb": "tt2094766",
       "genres": [
@@ -1564,6 +1564,20 @@
         "Romance"
       ],
       "dateAdded": "2024-07-31T08:03:35.0000000Z"
+    },
+    {
+      "id": "74755",
+      "title": "Beginners",
+      "year": 2011,
+      "overview": "Oliver meets the irreverent and unpredictable Anna only months after his father Hal Fields has passed away. This new love floods Oliver with memories of his father, who, following the death of his wife of 44 years, came out of the closet at age 75 to live a full, energized, and wonderfully tumultuous gay life – which included a younger boyfriend.",
+      "poster": "./data/posters/74755.jpg",
+      "imdb": "tt1532503",
+      "genres": [
+        "Drama",
+        "Romance",
+        "Comedy"
+      ],
+      "dateAdded": "2026-07-26T12:51:33.0000000Z"
     },
     {
       "id": "44461",
@@ -8033,6 +8047,20 @@
       "dateAdded": "2023-10-29T16:40:11.0000000Z"
     },
     {
+      "id": "75105",
+      "title": "Joseph: King of Dreams",
+      "year": 2000,
+      "overview": "In this animated retelling of the story from the Bible's Book of Genesis, Joseph's gift of dream interpretation and his brilliantly colored coat inspires jealousy in his brothers.",
+      "poster": "./data/posters/75105.jpg",
+      "imdb": "tt0264734",
+      "genres": [
+        "Family",
+        "Animation",
+        "Drama"
+      ],
+      "dateAdded": "2026-08-05T09:02:28.0000000Z"
+    },
+    {
       "id": "31411",
       "title": "Joshua",
       "year": 2002,
@@ -10425,8 +10453,7 @@
       "genres": [
         "War",
         "Drama",
-        "History",
-        "Action"
+        "History"
       ],
       "dateAdded": "2023-08-21T02:11:34.0000000Z"
     },
@@ -10636,6 +10663,20 @@
       "dateAdded": "2023-10-16T02:17:52.0000000Z"
     },
     {
+      "id": "75107",
+      "title": "The Mummy: Tomb of the Dragon Emperor",
+      "year": 2008,
+      "overview": "Archaeologist Rick O'Connell travels to China, pitting him against an emperor from the 2,000-year-old Han dynasty who's returned from the dead to pursue a quest for world domination. This time, O'Connell enlists the help of his wife and son to quash the so-called 'Dragon Emperor' and his abuse of supernatural power.",
+      "poster": "./data/posters/75107.jpg",
+      "imdb": "tt0859163",
+      "genres": [
+        "Adventure",
+        "Action",
+        "Fantasy"
+      ],
+      "dateAdded": "2026-08-08T21:59:31.0000000Z"
+    },
+    {
       "id": "51510",
       "title": "Munich",
       "year": 2005,
@@ -10758,7 +10799,8 @@
         "Animation",
         "Science Fiction",
         "Drama",
-        "Fantasy"
+        "Fantasy",
+        "Action"
       ],
       "dateAdded": "2026-05-22T09:27:10.0000000Z"
     },
@@ -11099,6 +11141,19 @@
         "Crime"
       ],
       "dateAdded": "2023-08-20T19:01:07.0000000Z"
+    },
+    {
+      "id": "74752",
+      "title": "Obsession",
+      "year": 2026,
+      "overview": "After breaking the mysterious \"One Wish Willow\" to win his crush's heart, a hopeless romantic finds himself getting exactly what he asked for but soon discovers that some desires come at a dark, sinister price.",
+      "poster": "./data/posters/74752.jpg",
+      "imdb": "tt37287335",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "dateAdded": "2026-07-15T11:27:29.0000000Z"
     },
     {
       "id": "745",
@@ -11512,6 +11567,18 @@
       "dateAdded": "2023-08-20T22:41:52.0000000Z"
     },
     {
+      "id": "75106",
+      "title": "Paris, Texas",
+      "year": 1984,
+      "overview": "A man wanders out of the desert not knowing who he is. His brother finds him, and helps to pull his memory back of the life he led before he walked out on his family and disappeared four years earlier.",
+      "poster": "./data/posters/75106.jpg",
+      "imdb": "tt0087884",
+      "genres": [
+        "Drama"
+      ],
+      "dateAdded": "2026-08-06T10:05:59.0000000Z"
+    },
+    {
       "id": "685",
       "title": "The Passion of the Christ",
       "year": 2004,
@@ -11647,6 +11714,19 @@
         "Drama"
       ],
       "dateAdded": "2023-08-18T18:44:56.0000000Z"
+    },
+    {
+      "id": "74754",
+      "title": "Persepolis",
+      "year": 2007,
+      "overview": "In 1970s Iran, Marjane 'Marji' Satrapi watches events through her young eyes and her idealistic family of a long dream being fulfilled of the hated Shah's defeat in the Iranian Revolution of 1979. However as Marji grows up, she witnesses first hand how the new Iran, now ruled by Islamic fundamentalists, has become a repressive tyranny on its own.",
+      "poster": "./data/posters/74754.jpg",
+      "imdb": "tt0808417",
+      "genres": [
+        "Animation",
+        "Drama"
+      ],
+      "dateAdded": "2026-07-17T23:21:14.0000000Z"
     },
     {
       "id": "50340",
@@ -12280,6 +12360,19 @@
       "dateAdded": "2023-08-16T03:24:59.0000000Z"
     },
     {
+      "id": "75104",
+      "title": "Project Hail Mary",
+      "year": 2026,
+      "overview": "Science teacher Ryland Grace wakes up on a spaceship light years from home with no recollection of who he is or how he got there. As his memory returns, he begins to uncover his mission: solve the riddle of the mysterious substance causing the sun to die out. He must call on his scientific knowledge and unorthodox ideas to save everything on Earth from extinction.",
+      "poster": "./data/posters/75104.jpg",
+      "imdb": "tt12042730",
+      "genres": [
+        "Science Fiction",
+        "Adventure"
+      ],
+      "dateAdded": "2026-08-12T06:58:34.0000000Z"
+    },
+    {
       "id": "656",
       "title": "Promare",
       "year": 2019,
@@ -12901,6 +12994,21 @@
         "Adventure"
       ],
       "dateAdded": "2023-08-14T17:17:45.0000000Z"
+    },
+    {
+      "id": "74751",
+      "title": "Revival of Evangelion",
+      "year": 1998,
+      "overview": "Revival of Evangelion is a re-edit of the Neon Genesis Evangelion films , released in 1998. It consists of Evangelion: Death (which was essentially a clip show that summarized the entire regular series) and The End of Evangelion , re-edited together to make a version that tells the entire story of Evangelion. It is considered to be the final form of the Evangelion films.",
+      "poster": "./data/posters/74751.jpg",
+      "imdb": "tt13645944",
+      "genres": [
+        "Action",
+        "Animation",
+        "Drama",
+        "Science Fiction"
+      ],
+      "dateAdded": "2026-07-22T22:48:23.0000000Z"
     },
     {
       "id": "621",
@@ -13600,8 +13708,7 @@
       "genres": [
         "Action",
         "Adventure",
-        "Fantasy",
-        "Drama"
+        "Fantasy"
       ],
       "dateAdded": "2023-10-15T19:26:23.0000000Z"
     },
@@ -14323,7 +14430,7 @@
       "id": "559",
       "title": "Snatch",
       "year": 2000,
-      "overview": "Unscrupulous boxing promoters, violent bookmakers, a Russian gangster, incompetent amateur robbers and supposedly Jewish jewelers fight to track down a priceless stolen diamond.",
+      "overview": "Unscrupulous boxing promoters, violent bookies, a Russian gangster, incompetent amateur robbers, and supposedly Jewish jewellers fight to track down a priceless stolen diamond.",
       "poster": "./data/posters/559.jpg",
       "imdb": "tt0208092",
       "genres": [
@@ -14493,8 +14600,8 @@
       "imdb": "tt0070723",
       "genres": [
         "Science Fiction",
-        "Thriller",
-        "Crime"
+        "Crime",
+        "Mystery"
       ],
       "dateAdded": "2023-10-24T18:27:40.0000000Z"
     },
@@ -15525,7 +15632,7 @@
       "id": "72695",
       "title": "The Theory of Everything",
       "year": 2014,
-      "overview": "The Theory of Everything is the extraordinary story of one of the world’s greatest living minds, the renowned astrophysicist Stephen Hawking, who falls deeply in love with fellow Cambridge student Jane Wilde.",
+      "overview": "Once a healthy, active young man, Hawking received an earth-shattering diagnosis at 21 years of age. With Jane fighting tirelessly by his side, Stephen embarks on his most ambitious scientific work, studying the very thing he now has precious little of – time.",
       "poster": "./data/posters/72695.jpg",
       "imdb": "tt2980516",
       "genres": [
@@ -16354,7 +16461,8 @@
       "imdb": "tt6857112",
       "genres": [
         "Horror",
-        "Mystery"
+        "Mystery",
+        "Thriller"
       ],
       "dateAdded": "2025-01-12T08:29:25.0000000Z"
     },
@@ -16590,6 +16698,20 @@
         "Romance"
       ],
       "dateAdded": "2025-08-26T02:09:28.0000000Z"
+    },
+    {
+      "id": "74753",
+      "title": "Walking with Dinosaurs",
+      "year": 2013,
+      "overview": "In a time when dinosaurs rule the Earth, the smallest dinosaur of the herd, a playful Pachyrhinosaurus named Patchi, embarks on the biggest adventure of his life. As he tries to find his place in a spectacular world filled with fun-loving friends and a few dangerous foes, Patchi will discover the courage he needs to become the leader of the herd and a hero for the ages.",
+      "poster": "./data/posters/74753.jpg",
+      "imdb": "tt1762399",
+      "genres": [
+        "Animation",
+        "Family",
+        "Adventure"
+      ],
+      "dateAdded": "2026-07-18T00:37:30.0000000Z"
     },
     {
       "id": "72766",
@@ -17049,6 +17171,19 @@
       "dateAdded": "2025-12-26T13:16:54.0000000Z"
     },
     {
+      "id": "74596",
+      "title": "Wonder",
+      "year": 2017,
+      "overview": "The story of August Pullman – a boy with facial differences – who enters fifth grade, attending a mainstream elementary school for the first time.",
+      "poster": "./data/posters/74596.jpg",
+      "imdb": "tt2543472",
+      "genres": [
+        "Family",
+        "Drama"
+      ],
+      "dateAdded": "2025-01-12T17:58:03.0000000Z"
+    },
+    {
       "id": "72744",
       "title": "Wonder Woman",
       "year": 2017,
@@ -17061,20 +17196,6 @@
         "Fantasy"
       ],
       "dateAdded": "2025-01-12T18:17:41.0000000Z"
-    },
-    {
-      "id": "72745",
-      "title": "Wonder Woman",
-      "year": 2017,
-      "overview": "An Amazon princess comes to the world of Man in the grips of the First World War to confront the forces of evil and bring an end to human conflict.",
-      "poster": "./data/posters/72745.jpg",
-      "imdb": "tt0451279",
-      "genres": [
-        "Action",
-        "Adventure",
-        "Fantasy"
-      ],
-      "dateAdded": "2025-01-12T17:58:03.0000000Z"
     },
     {
       "id": "749",
@@ -18302,7 +18423,7 @@
       "id": "29782",
       "title": "Stranger Things",
       "year": 2016,
-      "overview": "In 1980s Indiana, a group of young friends witness supernatural forces and secret government exploits. As they search for answers, the children unravel a series of extraordinary mysteries.",
+      "overview": "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces and one strange little girl.",
       "poster": "./data/posters/29782.jpg",
       "imdb": "tt4574334",
       "genres": [
@@ -18505,5 +18626,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-07-08T17:55:05.807Z"
+  "lastGenerated": "2026-08-20T05:19:37.913Z"
 }
