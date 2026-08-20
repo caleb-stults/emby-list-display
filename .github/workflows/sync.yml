@@ -38,7 +38,7 @@ jobs:
             --network host \
             -e EMBY_URL \
             -e EMBY_API_KEY \
-            -v "$(pwd)/docs/data:/app/docs/data" \
+            -v "$(pwd)/docs/data:/app/docs/data:z" \
             ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
 
       - name: Commit and Push Changes
