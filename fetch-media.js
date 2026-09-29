@@ -61,7 +61,7 @@ async function queryLibraryContents(itemType, parentId = null) {
         IncludeItemTypes: itemType, 
         Recursive: 'true', 
         Fields: 'Overview,ProductionYear,ImageTags,ProviderIds,Genres,DateCreated', 
-        IsMissing: 'false' 
+        //IsMissing: 'false' 
     });
     if (parentId) queryParams.append('ParentId', parentId);
     
