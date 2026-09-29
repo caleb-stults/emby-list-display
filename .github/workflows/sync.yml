@@ -42,19 +42,11 @@ jobs:
           EMBY_URL: ${{ secrets.EMBY_URL }}
           EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}
         run: |
-          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
-          
-          # Ensure file and directory exist on host before mounting
-          mkdir -p docs/data
-          touch docs/data/media.json
-          
-          # Mount the exact output file into the container
           docker run --rm \
             --network host \
             -e EMBY_URL \
             -e EMBY_API_KEY \
-            -e OUTPUT_DIR=/app/docs/data \
-            -v "$(pwd)/docs/data/media.json:/app/docs/data/media.json:z" \
+            -v "${{ github.workspace }}/docs/data:/app/docs/data:z" \
             ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
 
       - name: Debug Directory Output
@@ -77,7 +69,7 @@ jobs:
           else
             echo "[WARNING] Git still sees no changes."
           fi
-          
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
