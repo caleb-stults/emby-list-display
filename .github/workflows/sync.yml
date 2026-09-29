@@ -5,13 +5,12 @@ on:
   schedule:
     - cron: '30 9 * * *'
 
-# Grant the permissions required to deploy to GitHub Pages
+# Permissions required for both committing changes and publishing to GitHub Pages
 permissions:
   contents: write
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment
 concurrency:
   group: 'pages'
   cancel-in-progress: true
@@ -28,13 +27,15 @@ jobs:
       - run: npm install
       - run: npm test
 
-  # STEP 2: Sync Data & Deploy Pages
+  # STEP 2: Sync Data, Commit, and Deploy Pages
   sync:
     needs: test
     runs-on: self-hosted
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Run Sync Container
         env:
@@ -49,16 +50,17 @@ jobs:
             -v "$(pwd)/docs/data:/app/docs/data:z" \
             ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
 
-      - name: Commit and Push to Repo
+      - name: Commit and Push Changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add docs/data/
-          if ! git diff-index --quiet HEAD -- docs/data/; then
+          git status
+          git add -A docs/data/
+          if [ -n "$(git status --porcelain docs/data/)" ]; then
             git commit -m "Automated Sync: Update media catalog $(date +'%Y-%m-%d')"
             git push origin main
           else
-            echo "No changes detected to commit."
+            echo "No changes detected in docs/data/"
           fi
 
       - name: Setup Pages
