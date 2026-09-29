@@ -20,8 +20,11 @@ if (!EMBY_URL || !API_KEY) {
 }
 
 const WEB_ROOT = path.join(process.cwd(), 'docs');
-const DATA_DIR = path.join(WEB_ROOT, 'data');
+const DATA_DIR = process.env.OUTPUT_DIR || path.join(process.cwd(), 'docs', 'data');
 const POSTER_DIR = path.join(DATA_DIR, 'posters');
+
+console.log(`[DEBUG] Working directory (cwd): ${process.cwd()}`);
+console.log(`[DEBUG] Target DATA_DIR: ${DATA_DIR}`);
 
 if (!fs.existsSync(POSTER_DIR)) {
     fs.mkdirSync(POSTER_DIR, { recursive: true });

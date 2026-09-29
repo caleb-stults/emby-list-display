@@ -43,10 +43,12 @@ jobs:
           EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}
         run: |
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
+          echo "[DEBUG] Host pwd is: $(pwd)"
           docker run --rm \
             --network host \
             -e EMBY_URL \
             -e EMBY_API_KEY \
+            -e OUTPUT_DIR=/app/docs/data \
             -v "$(pwd)/docs/data:/app/docs/data:z" \
             ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
 
