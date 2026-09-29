@@ -5,8 +5,19 @@ on:
   schedule:
     - cron: '30 9 * * *'
 
+# Grant the permissions required to deploy to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: 'pages'
+  cancel-in-progress: true
+
 jobs:
-  # STEP 1: Quality Gate (runs on your infrastructure)
+  # STEP 1: Quality Gate
   test:
     runs-on: self-hosted
     env:
@@ -17,7 +28,7 @@ jobs:
       - run: npm install
       - run: npm test
 
-  # STEP 2: Cloud Sync (runs on GitHub's infrastructure)
+  # STEP 2: Sync Data & Deploy Pages
   sync:
     needs: test
     runs-on: self-hosted
@@ -38,7 +49,7 @@ jobs:
             -v "$(pwd)/docs/data:/app/docs/data:z" \
             ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
 
-      - name: Commit and Push Changes
+      - name: Commit and Push to Repo
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
@@ -49,3 +60,15 @@ jobs:
           else
             echo "No changes detected to commit."
           fi
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './docs'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
