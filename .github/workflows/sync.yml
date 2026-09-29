@@ -5,7 +5,6 @@ on:
   schedule:
     - cron: '30 9 * * *'
 
-# Permissions required for both committing changes and publishing to GitHub Pages
 permissions:
   contents: write
   pages: write
@@ -16,7 +15,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # STEP 1: Quality Gate
   test:
     runs-on: self-hosted
     env:
@@ -27,7 +25,6 @@ jobs:
       - run: npm install
       - run: npm test
 
-  # STEP 2: Sync Data, Commit, and Deploy Pages
   sync:
     needs: test
     runs-on: self-hosted
@@ -37,37 +34,24 @@ jobs:
         with:
           persist-credentials: true
 
-      - name: Run Sync Container
+      - name: Run Scraper (Native Node)
         env:
           EMBY_URL: ${{ secrets.EMBY_URL }}
           EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}
         run: |
-          docker run --rm \
-            --network host \
-            -e EMBY_URL \
-            -e EMBY_API_KEY \
-            -v "${{ github.workspace }}/docs/data:/app/docs/data:z" \
-            ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
+          npm install
+          node fetch-media.js
 
-      - name: Debug Directory Output
-        run: |
-          echo "=== DIRECTORY CONTENTS ==="
-          ls -la docs/data/
-          echo "=== GIT STATUS ==="
-          git status --porcelain docs/data/
-
-      - name: Commit and Push Changes
+      - name: Commit and Push Changes to Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          git add -A docs/data/
-          
+          git add docs/data/
           if [ -n "$(git status --porcelain docs/data/)" ]; then
             git commit -m "Automated Sync: Update media catalog $(date +'%Y-%m-%d %H:%M:%S')"
             git push origin main
           else
-            echo "[WARNING] Git still sees no changes."
+            echo "No changes detected in docs/data/"
           fi
 
       - name: Setup Pages
