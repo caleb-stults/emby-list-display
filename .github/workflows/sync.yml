@@ -46,9 +46,9 @@ jobs:
           mkdir -p docs/data
           docker run --rm \
             --network host \
-            -w /app \
             -e EMBY_URL \
             -e EMBY_API_KEY \
+            -e OUTPUT_DIR=/app/docs/data \
             -v "$(pwd)/docs/data:/app/docs/data:z" \
             ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
 
