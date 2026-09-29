@@ -9649,6 +9649,20 @@
       "dateAdded": "2023-10-15T03:02:49.0000000Z"
     },
     {
+      "id": "75222",
+      "title": "The Mandalorian and Grogu",
+      "year": 2026,
+      "overview": "The evil Empire has fallen, and Imperial warlords remain scattered throughout the galaxy. As the fledgling New Republic works to protect everything the Rebellion fought for, they have enlisted the help of legendary Mandalorian bounty hunter Din Djarin and his young apprentice Grogu.",
+      "poster": "./data/posters/75222.jpg",
+      "imdb": "tt30825738",
+      "genres": [
+        "Action",
+        "Adventure",
+        "Science Fiction"
+      ],
+      "dateAdded": "2026-08-27T05:48:40.0000000Z"
+    },
+    {
       "id": "27729",
       "title": "Mandy",
       "year": 2018,
@@ -10235,6 +10249,20 @@
         "History"
       ],
       "dateAdded": "2023-08-24T04:51:19.0000000Z"
+    },
+    {
+      "id": "75260",
+      "title": "The Miracle Maker",
+      "year": 2000,
+      "overview": "A mother and father in search of help for their sick daughter cross paths with an extraordinary carpenter named Jesus, who has devoted his life to spreading God's word. An amazing miracle brings to light the true meaning of Christ, and the sacrifices he endured for the deliverance of mankind. A compelling story of faith, trust, and devotion.",
+      "poster": "./data/posters/75260.jpg",
+      "imdb": "tt0208298",
+      "genres": [
+        "Animation",
+        "Family",
+        "Drama"
+      ],
+      "dateAdded": "2026-09-22T04:27:03.0000000Z"
     },
     {
       "id": "794",
@@ -15541,9 +15569,9 @@
       "poster": "./data/posters/72715.jpg",
       "imdb": "tt0831888",
       "genres": [
+        "Animation",
         "Action",
-        "Adventure",
-        "Animation"
+        "Adventure"
       ],
       "dateAdded": "2025-01-09T04:02:51.0000000Z"
     },
@@ -18626,5 +18654,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-08-20T05:19:37.913Z"
+  "lastGenerated": "2026-09-29T20:35:55.543Z"
 }
