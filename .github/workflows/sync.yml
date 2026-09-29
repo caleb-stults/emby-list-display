@@ -43,11 +43,12 @@ jobs:
           EMBY_API_KEY: ${{ secrets.EMBY_API_KEY }}
         run: |
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
+          mkdir -p docs/data
           docker run --rm \
             --network host \
             -e EMBY_URL \
             -e EMBY_API_KEY \
-            -v "$(pwd):/app:z" \
+            -v "$(pwd)/docs/data:/app/docs/data:z" \
             ${{ secrets.DOCKERHUB_USERNAME }}/emby-list-fetcher:latest
 
       - name: Commit and Push Changes
