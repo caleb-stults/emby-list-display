@@ -8645,18 +8645,18 @@
       "dateAdded": "2023-10-24T19:56:25.0000000Z"
     },
     {
-      "id": "72721",
+      "id": "75300",
       "title": "Lara Croft: Tomb Raider",
       "year": 2001,
       "overview": "Orphaned heiress, English aristocrat and intrepid archaeologist, Lara Croft, embarks on a dangerous quest to retrieve the two halves of an ancient artifact which controls time before it falls into the wrong hands. As an extremely rare planetary alignment is about to occur for the first time in 5,000 years, the fearless tomb raider will have to team up with rival adventurers and sworn enemies to collect the pieces, while time is running out. But, in the end, who can harness the archaic talisman's unlimited power?",
-      "poster": "./data/posters/72721.jpg",
+      "poster": "./data/posters/75300.jpg",
       "imdb": "tt0146316",
       "genres": [
         "Adventure",
         "Action",
         "Fantasy"
       ],
-      "dateAdded": "2025-01-11T19:24:17.0000000Z"
+      "dateAdded": "2026-10-05T12:10:50.0000000Z"
     },
     {
       "id": "72787",
@@ -18654,5 +18654,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-10-04T14:56:03.945Z"
+  "lastGenerated": "2026-10-05T18:44:44.127Z"
 }
