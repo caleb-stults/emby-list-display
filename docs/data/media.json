@@ -2963,7 +2963,7 @@
       "id": "41247",
       "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
       "year": 2005,
-      "overview": "Siblings Lucy, Edmund, Susan and Peter step through a magical wardrobe and find the land of Narnia. There, they discover a charming, once peaceful kingdom that has been plunged into eternal winter by the evil White Witch, Jadis. Aided by the wise and magnificent lion, Aslan, the children lead Narnia into a spectacular, climactic battle to be free of the Witch's glacial powers forever.",
+      "overview": "Four kids travel through a wardrobe to the land of Narnia and learn of their destiny to free it with the guidance of a mystical lion.",
       "poster": "./data/posters/41247.jpg",
       "imdb": "tt0363771",
       "genres": [
@@ -9077,7 +9077,7 @@
       "id": "29802",
       "title": "Little Shop of Horrors",
       "year": 1986,
-      "overview": "Seymour Krelborn is a nerdy orphan working at Mushnik's, a flower shop in urban Skid Row. He harbors a crush on fellow co-worker Audrey Fulquard, and is berated by Mr. Mushnik daily. One day Seymour finds a very mysterious unidentified plant which he calls Audrey II. The plant seems to have a craving for blood and soon begins to sing for his supper.",
+      "overview": "Seymour Krelborn is a nerdy orphan working at Mushnik's, a flower shop in urban Skid Row. He harbors a crush on fellow co-worker, Audrey Fulquard, and is berated by Mr. Mushnik daily. One day, Seymour finds a very mysterious unidentified plant which he calls Audrey II. The plant seems to have a craving for blood and soon begins to sing for its supper.",
       "poster": "./data/posters/29802.jpg",
       "imdb": "tt0091419",
       "genres": [
@@ -12773,7 +12773,8 @@
       "imdb": "tt0047396",
       "genres": [
         "Thriller",
-        "Mystery"
+        "Mystery",
+        "Drama"
       ],
       "dateAdded": "2023-08-15T22:32:49.0000000Z"
     },
@@ -18654,5 +18655,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-10-10T15:31:34.529Z"
+  "lastGenerated": "2026-10-11T15:53:19.373Z"
 }
