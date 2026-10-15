@@ -1086,18 +1086,18 @@
       "dateAdded": "2023-11-19T17:46:31.0000000Z"
     },
     {
-      "id": "45041",
+      "id": "75389",
       "title": "Army of Darkness",
       "year": 1992,
       "overview": "Ash, a handsome, shotgun-toting, chainsaw-armed department store clerk, is time warped backwards into England's Dark Ages, where he romances a beauty and faces legions of the undead.",
-      "poster": "./data/posters/45041.jpg",
+      "poster": "./data/posters/75389.jpg",
       "imdb": "tt0106308",
       "genres": [
         "Fantasy",
         "Horror",
         "Comedy"
       ],
-      "dateAdded": "2023-11-19T18:24:14.0000000Z"
+      "dateAdded": "2026-10-15T04:09:41.0000000Z"
     },
     {
       "id": "45040",
@@ -2946,18 +2946,18 @@
       "dateAdded": "2024-12-19T21:32:21.0000000Z"
     },
     {
-      "id": "52078",
+      "id": "75386",
       "title": "The Chronicles of Narnia: Prince Caspian",
       "year": 2008,
       "overview": "One year after their incredible adventures in the Lion, the Witch and the Wardrobe, Peter, Edmund, Lucy and Susan Pevensie return to Narnia to aid a young prince whose life has been threatened by the evil King Miraz. Now, with the help of a colorful cast of new characters, including Trufflehunter the badger and Nikabrik the dwarf, the Pevensie clan embarks on an incredible quest to ensure that Narnia is returned to its rightful heir.",
-      "poster": "./data/posters/52078.jpg",
+      "poster": "./data/posters/75386.jpg",
       "imdb": "tt0499448",
       "genres": [
         "Adventure",
         "Family",
         "Fantasy"
       ],
-      "dateAdded": "2024-06-24T21:41:33.0000000Z"
+      "dateAdded": "2026-10-14T20:59:18.0000000Z"
     },
     {
       "id": "41247",
@@ -18840,5 +18840,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-10-14T14:37:03.708Z"
+  "lastGenerated": "2026-10-15T14:18:37.331Z"
 }
