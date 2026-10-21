@@ -15,6 +15,57 @@
       "dateAdded": "2023-11-23T06:29:05.0000000Z"
     },
     {
+      "id": "75392",
+      "title": "[REC]",
+      "year": 2007,
+      "overview": "A television reporter and cameraman follow emergency workers into a dark apartment building and are quickly locked inside with something terrifying.",
+      "poster": "./data/posters/75392.jpg",
+      "imdb": "tt1038988",
+      "genres": [
+        "Horror",
+        "Mystery"
+      ],
+      "dateAdded": "2026-10-20T19:13:45.0000000Z"
+    },
+    {
+      "id": "75393",
+      "title": "[REC]²",
+      "year": 2009,
+      "overview": "The action continues from [REC], with the medical officer and a SWAT team outfitted with video cameras are sent into the sealed off apartment to control the situation.",
+      "poster": "./data/posters/75393.jpg",
+      "imdb": "tt1245112",
+      "genres": [
+        "Thriller",
+        "Horror"
+      ],
+      "dateAdded": "2026-10-20T22:59:52.0000000Z"
+    },
+    {
+      "id": "75394",
+      "title": "[REC]³ Genesis",
+      "year": 2012,
+      "overview": "A pair of newlyweds must fight to survive when their wedding reception descends into chaos and carnage when their guests become infected by a virus that turns them into hungry zombies.",
+      "poster": "./data/posters/75394.jpg",
+      "imdb": "tt1649444",
+      "genres": [
+        "Horror"
+      ],
+      "dateAdded": "2026-10-21T00:19:39.0000000Z"
+    },
+    {
+      "id": "75395",
+      "title": "[REC]⁴ Apocalypse",
+      "year": 2014,
+      "overview": "Ángela Vidal, the young television reporter who entered the building with the firemen, manages to make it out alive. But what the soldiers don't know is that she carries the seed of the strange infection. She is to be taken to a provisional quarantine facility, a high-security installation where she will have to stay in isolation for several days. An old oil tanker, miles off shore and surrounded by water on all sides, has been especially equipped for the quarantine.",
+      "poster": "./data/posters/75395.jpg",
+      "imdb": "tt1649443",
+      "genres": [
+        "Thriller",
+        "Horror"
+      ],
+      "dateAdded": "2026-10-21T01:43:12.0000000Z"
+    },
+    {
       "id": "51150",
       "title": "5 Centimeters per Second",
       "year": 2007,
@@ -18840,5 +18891,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-10-20T14:26:18.232Z"
+  "lastGenerated": "2026-10-21T14:35:19.336Z"
 }
