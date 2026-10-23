@@ -13753,6 +13753,19 @@
       "dateAdded": "2024-05-09T17:28:53.0000000Z"
     },
     {
+      "id": "75519",
+      "title": "The Sacrament",
+      "year": 2014,
+      "overview": "Two journalists set out to document their friend's journey to reunite with his estranged sister. They track her to an undisclosed location where they are welcomed into the remote world of \"Eden Parish,\" a self-sustained rural utopia composed of nearly two hundred members and overseen by a mysterious leader known only as \"Father.\" It quickly becomes evident to the newcomers that this paradise may not be as it seems. Eden Parish harbors a twisted secret. What started as just another documentary shoot soon becomes a fight for survival.",
+      "poster": "./data/posters/75519.jpg",
+      "imdb": "tt2383068",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "dateAdded": "2026-10-22T00:51:41.0000000Z"
+    },
+    {
       "id": "607",
       "title": "The Sandlot",
       "year": 1993,
@@ -17170,6 +17183,19 @@
       "dateAdded": "2025-01-12T14:20:15.0000000Z"
     },
     {
+      "id": "75520",
+      "title": "When Evil Lurks",
+      "year": 2023,
+      "overview": "When brothers Pedro and Jimi discover that a demonic infection has been festering in a nearby farmhouse, they attempt to evict the victim from their land. Failing to adhere to the proper rites of exorcism, their reckless actions inadvertently trigger an epidemic of possessions across their rural community.",
+      "poster": "./data/posters/75520.jpg",
+      "imdb": "tt16300962",
+      "genres": [
+        "Horror",
+        "Thriller"
+      ],
+      "dateAdded": "2026-10-22T06:20:06.0000000Z"
+    },
+    {
       "id": "72773",
       "title": "When Harry Met Sally...",
       "year": 1989,
@@ -18891,5 +18917,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-10-22T14:36:57.597Z"
+  "lastGenerated": "2026-10-23T14:22:20.507Z"
 }
