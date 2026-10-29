@@ -3315,6 +3315,20 @@
       "dateAdded": "2023-11-12T02:25:16.0000000Z"
     },
     {
+      "id": "75577",
+      "title": "Companion",
+      "year": 2025,
+      "overview": "During a weekend getaway at a secluded lakeside estate, a group of friends finds themselves entangled in a web of secrets, deception, and advanced technology. As tensions rise and loyalties are tested, they uncover unsettling truths about themselves and the world around them.",
+      "poster": "./data/posters/75577.jpg",
+      "imdb": "tt26584495",
+      "genres": [
+        "Horror",
+        "Science Fiction",
+        "Thriller"
+      ],
+      "dateAdded": "2026-10-28T09:00:51.0000000Z"
+    },
+    {
       "id": "61622",
       "title": "A Complete Unknown",
       "year": 2024,
@@ -5358,6 +5372,20 @@
         "Mystery"
       ],
       "dateAdded": "2023-11-06T03:31:22.0000000Z"
+    },
+    {
+      "id": "75578",
+      "title": "Frankenstein",
+      "year": 2025,
+      "overview": "Dr. Victor Frankenstein, a brilliant but egotistical scientist, brings a creature to life in a monstrous experiment that ultimately leads to the undoing of both the creator and his tragic creation.",
+      "poster": "./data/posters/75578.jpg",
+      "imdb": "tt1312221",
+      "genres": [
+        "Drama",
+        "Fantasy",
+        "Horror"
+      ],
+      "dateAdded": "2026-10-28T18:00:56.0000000Z"
     },
     {
       "id": "70887",
@@ -18917,5 +18945,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-10-28T16:13:28.003Z"
+  "lastGenerated": "2026-10-29T16:21:37.853Z"
 }
