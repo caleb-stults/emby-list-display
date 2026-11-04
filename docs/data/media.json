@@ -2602,6 +2602,19 @@
       "dateAdded": "2023-11-16T01:43:08.0000000Z"
     },
     {
+      "id": "75639",
+      "title": "The Butter Battle Book",
+      "year": 1989,
+      "overview": "A cold war between two lands over a ridiculous dispute leads to a perilous arms race.",
+      "poster": "./data/posters/75639.jpg",
+      "imdb": "tt0213536",
+      "genres": [
+        "Animation",
+        "Family"
+      ],
+      "dateAdded": "2026-11-04T02:55:46.0000000Z"
+    },
+    {
       "id": "43188",
       "title": "C'mon C'mon",
       "year": 2021,
@@ -2803,6 +2816,20 @@
         "Family"
       ],
       "dateAdded": "2024-12-26T10:30:16.0000000Z"
+    },
+    {
+      "id": "75640",
+      "title": "The Cat in the Hat",
+      "year": 1971,
+      "overview": "In a marvelously animated version of one of the most beloved of all Dr. Seuss tales, two youngsters find themselves at home with nothing to do on a rainy afternoon. But when the magical, mischievous Cat in the Hat arrives on the scene, they're all cat-apulted into a day of rousing, romping, outlandish antics they - and you - will never forget!",
+      "poster": "./data/posters/75640.jpg",
+      "imdb": "tt0284714",
+      "genres": [
+        "TV Movie",
+        "Animation",
+        "Family"
+      ],
+      "dateAdded": "2026-11-04T03:15:41.0000000Z"
     },
     {
       "id": "42281",
@@ -3574,6 +3601,19 @@
       "dateAdded": "2023-11-11T22:58:58.0000000Z"
     },
     {
+      "id": "75631",
+      "title": "Daisy-Head Mayzie",
+      "year": 1995,
+      "overview": "The Cat in the Hat (the most famous Dr. Seuss character) narrates a story about a girl named Mayzie McGrew, who mysteriously has a daisy growing from her head! This happens during the school hours, so she's ridiculed by her friends, and speculated by her teacher, principal, parents, and any other adults confirmed of Mayzie's problem. The situation reaches its high point when Finagle steps in and offers Mayzie a place in stardom, based from the daisy in her head. Mayzie herself, for reasons unknown, takes the offer, not long before she finds out the hard way how fame & fortune can bring unhappiness. It's some time after her daisy disappears that Mayzie realizes that the love of her family & friends is what really matters. From that point on, things are back to normal (except for a few of Mayzie's daisy's occasional sprout up every now & then).",
+      "poster": "./data/posters/75631.jpg",
+      "imdb": "tt0111933",
+      "genres": [
+        "Animation",
+        "Family"
+      ],
+      "dateAdded": "2026-11-03T23:53:05.0000000Z"
+    },
+    {
       "id": "39729",
       "title": "Daredevil",
       "year": 2003,
@@ -4196,6 +4236,19 @@
         "Thriller"
       ],
       "dateAdded": "2024-02-11T22:09:58.0000000Z"
+    },
+    {
+      "id": "75632",
+      "title": "Dr. Seuss on the Loose",
+      "year": 1973,
+      "overview": "No description.",
+      "poster": "./data/posters/75632.jpg",
+      "imdb": "tt0134628",
+      "genres": [
+        "Animation",
+        "Family"
+      ],
+      "dateAdded": "2026-11-04T00:15:04.0000000Z"
     },
     {
       "id": "39697",
@@ -6364,6 +6417,21 @@
       "dateAdded": "2023-11-05T02:18:54.0000000Z"
     },
     {
+      "id": "75641",
+      "title": "The Grinch Grinches the Cat in the Hat",
+      "year": 1982,
+      "overview": "The Cat in the Hat is all set for a lovely picnic, but the evil Grinch changes his plans by inventing a contraption that captures noise and makes it sound ferocious. The Cat has to save the world from the clutches of the Grinch and the only way to do it is to reach Grinch's soft spot.",
+      "poster": "./data/posters/75641.jpg",
+      "imdb": "tt0213689",
+      "genres": [
+        "Animation",
+        "Family",
+        "Music",
+        "TV Movie"
+      ],
+      "dateAdded": "2026-11-04T03:33:00.0000000Z"
+    },
+    {
       "id": "34290",
       "title": "Groundhog Day",
       "year": 1993,
@@ -6459,6 +6527,23 @@
         "Thriller"
       ],
       "dateAdded": "2023-11-04T16:35:07.0000000Z"
+    },
+    {
+      "id": "75633",
+      "title": "Halloween Is Grinch Night",
+      "year": 1977,
+      "overview": "When the sour-sweet wind starts blowing again, the Whos retreat to their homes because they know the Grinch will soon be a'prowlin. Young Eukariah Who has to make a trip to the Euphemism (outhouse), when the wind blows him away to a confrontation with the gruesome Grinch. Eukariah decides that the Grinch must be stopped, so he faces his fears and confronts the Grinch and his spooks.",
+      "poster": "./data/posters/75633.jpg",
+      "imdb": "tt0183288",
+      "genres": [
+        "Fantasy",
+        "Family",
+        "Animation",
+        "Music",
+        "Comedy",
+        "TV Movie"
+      ],
+      "dateAdded": "2026-11-04T00:31:07.0000000Z"
     },
     {
       "id": "33959",
@@ -6995,6 +7080,21 @@
       "dateAdded": "2023-11-03T19:03:53.0000000Z"
     },
     {
+      "id": "75642",
+      "title": "The Hoober-Bloob Highway",
+      "year": 1975,
+      "overview": "The Hoober-Bloob Highway is an animated musical special written by Dr. Seuss. Visit the magical island where Mr. Hoober-Bloob sends babies to Earth in his own musical way.",
+      "poster": "./data/posters/75642.jpg",
+      "imdb": "tt0248875",
+      "genres": [
+        "Animation",
+        "Family",
+        "TV Movie",
+        "Music"
+      ],
+      "dateAdded": "2026-11-04T03:46:48.0000000Z"
+    },
+    {
       "id": "33116",
       "title": "Hook",
       "year": 1991,
@@ -7021,6 +7121,32 @@
         "Family"
       ],
       "dateAdded": "2023-11-03T19:33:14.0000000Z"
+    },
+    {
+      "id": "75634",
+      "title": "Horton Hatches the Egg",
+      "year": 1942,
+      "overview": "Horton the elephant agrees to watch over lazy Maisie bird's egg while she vacations. Much later, after...",
+      "poster": "./data/posters/75634.jpg",
+      "imdb": "tt0034870",
+      "genres": [
+        "Animation",
+        "Comedy"
+      ],
+      "dateAdded": "2026-11-04T00:37:36.0000000Z"
+    },
+    {
+      "id": "75635",
+      "title": "Horton Hears a Who!",
+      "year": 1970,
+      "overview": "In this story, Horton discovers there is a microscopic community of intelligent beings called the Who's living on a plant that only he can hear. Recognising the dangers they face, he resolves to keep them safe. However, the other animals around him think Horton has gone crazy thinking that there are such beings.",
+      "poster": "./data/posters/75635.jpg",
+      "imdb": "tt0198545",
+      "genres": [
+        "Animation",
+        "Family"
+      ],
+      "dateAdded": "2026-11-04T00:55:52.0000000Z"
     },
     {
       "id": "58700",
@@ -7075,6 +7201,20 @@
         "Fantasy"
       ],
       "dateAdded": "2026-05-31T14:14:59.0000000Z"
+    },
+    {
+      "id": "75636",
+      "title": "How the Grinch Stole Christmas!",
+      "year": 1966,
+      "overview": "Bitter and hateful, the Grinch is irritated at the thought of a nearby village having a happy time celebrating Christmas. Disguised as Santa Claus, with his dog made to look like a reindeer, he decides to raid the village to steal all the Christmas things.",
+      "poster": "./data/posters/75636.jpg",
+      "imdb": "tt0060345",
+      "genres": [
+        "Animation",
+        "Family",
+        "Comedy"
+      ],
+      "dateAdded": "2026-11-04T01:14:25.0000000Z"
     },
     {
       "id": "33119",
@@ -7431,6 +7571,20 @@
         "Crime"
       ],
       "dateAdded": "2023-11-02T01:58:49.0000000Z"
+    },
+    {
+      "id": "75637",
+      "title": "In Search of Dr. Seuss",
+      "year": 1994,
+      "overview": "A nosy reporter wants to find out all she can about Dr. Seuss, aka Ted Geisel, and gets told the real facts by several of his characters, with large snippets of his stories and songs interspersed.",
+      "poster": "./data/posters/75637.jpg",
+      "imdb": "tt0110121",
+      "genres": [
+        "Animation",
+        "Comedy",
+        "TV Movie"
+      ],
+      "dateAdded": "2026-11-04T02:27:04.0000000Z"
     },
     {
       "id": "32234",
@@ -8400,18 +8554,18 @@
       "dateAdded": "2023-11-29T19:44:53.0000000Z"
     },
     {
-      "id": "30482",
+      "id": "75629",
       "title": "Killer Klowns from Outer Space",
       "year": 1988,
       "overview": "Aliens disguised as clowns crash land on Earth in a rural town to capture unsuspecting victims in cotton candy cocoons for later consumption.",
-      "poster": "./data/posters/30482.jpg",
+      "poster": "./data/posters/75629.jpg",
       "imdb": "tt0095444",
       "genres": [
         "Comedy",
         "Horror",
         "Science Fiction"
       ],
-      "dateAdded": "2023-10-28T23:13:28.0000000Z"
+      "dateAdded": "2026-11-02T06:43:12.0000000Z"
     },
     {
       "id": "71386",
@@ -9447,6 +9601,22 @@
         "Science Fiction"
       ],
       "dateAdded": "2023-10-17T03:26:35.0000000Z"
+    },
+    {
+      "id": "75630",
+      "title": "The Lorax",
+      "year": 1972,
+      "overview": "The Once-ler, a ruined industrialist, tells the tale of his rise to wealth and subsequent fall, as he disregarded the warnings of a wise old forest creature called the Lorax about the environmental destruction caused by his greed.",
+      "poster": "./data/posters/75630.jpg",
+      "imdb": "tt0213065",
+      "genres": [
+        "Animation",
+        "Family",
+        "TV Movie",
+        "Drama",
+        "Fantasy"
+      ],
+      "dateAdded": "2026-11-04T04:07:36.0000000Z"
     },
     {
       "id": "31701",
@@ -12425,6 +12595,22 @@
         "Horror"
       ],
       "dateAdded": "2023-08-17T18:57:05.0000000Z"
+    },
+    {
+      "id": "75638",
+      "title": "Pontoffel Pock, Where Are You?",
+      "year": 1980,
+      "overview": "A young man wishes he could get away and his wish is granted in a globetrotting, song singing way.",
+      "poster": "./data/posters/75638.jpg",
+      "imdb": "tt0295628",
+      "genres": [
+        "Animation",
+        "Family",
+        "Adventure",
+        "Comedy",
+        "Fantasy"
+      ],
+      "dateAdded": "2026-11-04T02:42:13.0000000Z"
     },
     {
       "id": "679",
@@ -18945,5 +19131,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-11-03T17:14:21.947Z"
+  "lastGenerated": "2026-11-04T17:26:03.619Z"
 }
