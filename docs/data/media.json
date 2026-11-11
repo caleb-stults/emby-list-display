@@ -11210,6 +11210,20 @@
       "dateAdded": "2023-08-22T01:21:03.0000000Z"
     },
     {
+      "id": "75817",
+      "title": "National Treasure",
+      "year": 2004,
+      "overview": "Modern treasure hunters, led by archaeologist Ben Gates, search for a chest of riches rumored to have been stashed away by George Washington, Thomas Jefferson and Benjamin Franklin during the Revolutionary War. The chest's whereabouts may lie in secret clues embedded in the Constitution and the Declaration of Independence, and Gates is in a race to find the gold before his enemies do.",
+      "poster": "./data/posters/75817.jpg",
+      "imdb": "tt0368891",
+      "genres": [
+        "Adventure",
+        "Action",
+        "Mystery"
+      ],
+      "dateAdded": "2026-11-11T02:42:41.0000000Z"
+    },
+    {
       "id": "52079",
       "title": "National Treasure: Book of Secrets",
       "year": 2007,
@@ -19146,5 +19160,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-11-10T17:13:10.061Z"
+  "lastGenerated": "2026-11-11T17:21:42.308Z"
 }
