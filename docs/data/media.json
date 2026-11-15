@@ -5933,6 +5933,19 @@
       "dateAdded": "2023-11-06T00:39:34.0000000Z"
     },
     {
+      "id": "75840",
+      "title": "Glory Road",
+      "year": 2006,
+      "overview": "In 1966, Texas Western coach Don Haskins led the first all-black starting line-up for a college basketball team to the NCAA national championship.",
+      "poster": "./data/posters/75840.jpg",
+      "imdb": "tt0385726",
+      "genres": [
+        "Drama",
+        "History"
+      ],
+      "dateAdded": "2026-11-14T23:12:33.0000000Z"
+    },
+    {
       "id": "36090",
       "title": "The Godfather",
       "year": 1972,
@@ -15446,7 +15459,7 @@
       "id": "584",
       "title": "St. Elmo's Fire",
       "year": 1985,
-      "overview": "A group of friends graduates from the halls of Georgetown University into lives that revolve around sex and career aspirations. Kirby waits tables to pay for law school. His roommate Kevin struggles at a D.C. newspaper as he searches for the meaning of love. Jules may be an object of adoration and envy, but secretly she has problems of her own. Demure Wendy is in love with Billy—a loveable sax player and an irresponsible drunk. Alec wants it all: a career in politics and the appearance of a traditional home life. Alec’s girlfriend, Leslie, is an ambitious architect who doesn't know about his infidelity, but his new allegiance to the Republican Party is already enough to put her off marriage.",
+      "overview": "Reluctant to let go of college life, a close-knit team of seven friends--irresponsible saxophone player Billy, young Republican Alec, his girlfriend Leslie, struggling journalist Kevin, drama queen Jules, lovesick waiter Kirby, and Wendy, a social worker with a heart of gold--realise the party is over. And as the burdens of maturity close in on the young dreamers, the complexities of adulthood and the daily struggle of growing up put their sacred friendship to the test. But everyone knows life is not a bed of roses. It won't be easy, but when all is said and done, what will it take for St. Elmo's clique to find its place in the real world?",
       "poster": "./data/posters/584.jpg",
       "imdb": "tt0090060",
       "genres": [
@@ -19160,5 +19173,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-11-14T15:58:00.995Z"
+  "lastGenerated": "2026-11-15T16:30:46.606Z"
 }
