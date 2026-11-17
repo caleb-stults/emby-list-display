@@ -7902,6 +7902,20 @@
       "dateAdded": "2024-02-11T10:17:38.0000000Z"
     },
     {
+      "id": "75859",
+      "title": "The Invite",
+      "year": 2026,
+      "overview": "Joe and Angela's marriage is on thin ice. When they invite their enigmatic upstairs neighbors for a dinner party, the night spirals into unexpected places. Have they reignited the spark or lit the match that burns it all down?",
+      "poster": "./data/posters/75859.jpg",
+      "imdb": "tt14173636",
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "dateAdded": "2026-11-17T08:13:34.0000000Z"
+    },
+    {
       "id": "52267",
       "title": "The Iron Claw",
       "year": 2023,
@@ -19173,5 +19187,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-11-16T19:45:59.691Z"
+  "lastGenerated": "2026-11-17T18:43:09.395Z"
 }
