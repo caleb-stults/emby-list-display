@@ -15171,16 +15171,15 @@
       "id": "565",
       "title": "Space Jam",
       "year": 1996,
-      "overview": "With their freedom on the line, the Looney Tunes seek the help of NBA superstar Michael Jordon to win a basketball game against a team of moronic aliens.",
+      "overview": "With their freedom on the line, the Looney Tunes seek the help of NBA superstar Michael Jordan to win a basketball game against a team of moronic aliens.",
       "poster": "./data/posters/565.jpg",
       "imdb": "tt0117705",
       "genres": [
         "Family",
-        "Animation",
-        "Comedy",
         "Science Fiction",
-        "Adventure",
-        "Fantasy"
+        "Fantasy",
+        "Comedy",
+        "Animation"
       ],
       "dateAdded": "2023-07-24T23:32:58.0000000Z"
     },
@@ -19201,5 +19200,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-11-20T17:56:25.782Z"
+  "lastGenerated": "2026-11-21T16:54:37.281Z"
 }
