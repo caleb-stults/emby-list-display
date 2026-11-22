@@ -15124,6 +15124,20 @@
       "dateAdded": "2024-06-02T19:22:46.0000000Z"
     },
     {
+      "id": "75918",
+      "title": "Song Sung Blue",
+      "year": 2025,
+      "overview": "Based on a true story, two down-on-their-luck musicians form a joyous Neil Diamond tribute band, proving it's never too late to find love and follow your dreams.",
+      "poster": "./data/posters/75918.jpg",
+      "imdb": "tt30343021",
+      "genres": [
+        "Music",
+        "Romance",
+        "Drama"
+      ],
+      "dateAdded": "2026-11-21T23:18:32.0000000Z"
+    },
+    {
       "id": "564",
       "title": "Soul",
       "year": 2020,
@@ -19200,5 +19214,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-11-21T16:54:37.281Z"
+  "lastGenerated": "2026-11-22T17:18:32.819Z"
 }
