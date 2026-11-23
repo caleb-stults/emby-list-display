@@ -2339,18 +2339,18 @@
       "dateAdded": "2023-11-15T22:53:16.0000000Z"
     },
     {
-      "id": "42292",
+      "id": "75991",
       "title": "Brawl in Cell Block 99",
       "year": 2017,
       "overview": "After working as a drug courier and getting into a brutal shootout with police, a former boxer finds himself at the mercy of his enemies as they force him to instigate violent acts that turn the prison he resides in into a battleground.",
-      "poster": "./data/posters/42292.jpg",
+      "poster": "./data/posters/75991.jpg",
       "imdb": "tt5657856",
       "genres": [
         "Action",
         "Crime",
         "Thriller"
       ],
-      "dateAdded": "2023-11-15T23:15:02.0000000Z"
+      "dateAdded": "2026-11-22T21:24:39.0000000Z"
     },
     {
       "id": "42291",
@@ -15746,6 +15746,20 @@
       "dateAdded": "2023-11-18T04:18:22.0000000Z"
     },
     {
+      "id": "75992",
+      "title": "The Sting",
+      "year": 1973,
+      "overview": "A novice con man teams up with an acknowledged master to avenge the murder of a mutual friend by pulling off the ultimate big con and swindling a fortune from a big-time mobster.",
+      "poster": "./data/posters/75992.jpg",
+      "imdb": "tt0070735",
+      "genres": [
+        "Comedy",
+        "Crime",
+        "Drama"
+      ],
+      "dateAdded": "2026-11-22T12:19:42.0000000Z"
+    },
+    {
       "id": "590",
       "title": "Straight Outta Compton",
       "year": 2015,
@@ -17465,6 +17479,18 @@
         "Romance"
       ],
       "dateAdded": "2025-01-12T14:02:29.0000000Z"
+    },
+    {
+      "id": "75993",
+      "title": "What About Bob?",
+      "year": 1991,
+      "overview": "Before going on vacation, self-involved psychiatrist Dr. Leo Marvin has the misfortune of taking on a new patient: Bob Wiley. An exemplar of neediness and a compendium of phobias, Bob follows Marvin to his family's country house. Dr. Marvin tries to get him to leave; the trouble is, everyone loves Bob. As his oblivious patient makes himself at home, Dr. Marvin loses his professional composure and, before long, may be ready for the loony bin himself.",
+      "poster": "./data/posters/75993.jpg",
+      "imdb": "tt0103241",
+      "genres": [
+        "Comedy"
+      ],
+      "dateAdded": "2026-11-21T23:45:19.0000000Z"
     },
     {
       "id": "72772",
@@ -19214,5 +19240,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-11-22T17:18:32.819Z"
+  "lastGenerated": "2026-11-23T21:37:22.714Z"
 }
