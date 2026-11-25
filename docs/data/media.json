@@ -11581,17 +11581,17 @@
       "dateAdded": "2023-08-20T16:24:46.0000000Z"
     },
     {
-      "id": "737",
+      "id": "76050",
       "title": "North by Northwest",
       "year": 1959,
       "overview": "Advertising man Roger Thornhill is mistaken for a spy, triggering a deadly cross-country chase.",
-      "poster": "./data/posters/737.jpg",
+      "poster": "./data/posters/76050.jpg",
       "imdb": "tt0053125",
       "genres": [
         "Thriller",
         "Adventure"
       ],
-      "dateAdded": "2023-08-20T16:30:54.0000000Z"
+      "dateAdded": "2026-11-25T15:56:44.0000000Z"
     },
     {
       "id": "739",
@@ -15219,7 +15219,6 @@
       "imdb": "tt0054331",
       "genres": [
         "History",
-        "War",
         "Drama",
         "Adventure"
       ],
@@ -19240,5 +19239,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-11-24T20:17:56.578Z"
+  "lastGenerated": "2026-11-25T19:31:03.520Z"
 }
