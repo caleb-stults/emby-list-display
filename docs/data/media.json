@@ -12647,8 +12647,8 @@
       "poster": "./data/posters/677.jpg",
       "imdb": "tt0338348",
       "genres": [
-        "Animation",
         "Adventure",
+        "Animation",
         "Family",
         "Fantasy"
       ],
@@ -19239,5 +19239,5 @@
       "dateAdded": "2026-01-05T06:15:35.0000000Z"
     }
   ],
-  "lastGenerated": "2026-11-25T19:31:03.520Z"
+  "lastGenerated": "2026-11-26T19:13:28.820Z"
 }
